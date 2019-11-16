@@ -1,0 +1,136 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+.tabs {
+  height: 100vh;
+}
+#tab-button {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#tab-button li {
+  display: table-cell;
+  width: 20%;
+}
+#tab-button li a {
+  display: block;
+  padding: .5em;
+  background: #eee;
+  border: 1px solid #ddd;
+  text-align: center;
+  color: #000;
+  text-decoration: none;
+}
+#tab-button li:not(:first-child) a {
+  border-left: none;
+}
+#tab-button li a:hover,
+#tab-button .is-active a {
+  border-bottom-color: transparent;
+  background: #f7f7f7;
+}
+.tab-contents {
+  /* padding: .5em 2em 1em; */
+  border: 1px solid #ddd;
+}
+
+.tab-button-outer {
+  display: none;
+}
+.tab-contents {
+  margin-top: 20px;
+}
+@media screen and (min-width: 768px) {
+  .tab-button-outer {
+    position: relative;
+    z-index: 2;
+    display: block;
+  }
+  .tab-select-outer {
+    display: none;
+  }
+  .tab-contents {
+    position: relative;
+    top: -1px;
+    margin-top: 0;
+  }
+}
+
+.CodeMirror-gutters {
+  border-right: 1px solid #f7f7f7;
+}
+
+.row { height: inherit;}
+
+.col-sm-6 {
+  padding: 0;
+  height: 100%;
+}
+
+#tab-button {
+  width: 40%;
+  display: inline;
+}
+
+#send {
+  position: absolute;
+    right: 1px;
+    top: 1px;
+    z-index: 1000000;
+}
+
+#graph {
+  position: absolute;
+    left: 1px;
+    top: 1px;
+    z-index: 1000000;
+}
+
+.container-fluid  {
+    height: 100%;
+    /* padding: 0; */
+    box-sizing: border-box;
+}
+
+#editor {
+  height: 100%;
+}
+
+.tab-contents{
+  height: calc(100vh  - 51px);
+}
+#grapharea {
+  height: calc(100vh  - 25vh);
+}
+
+#consolearea {
+  height: calc(25vh - 10px);
+  width: calc(50vw - 0px);
+  /* background: #111; */
+  color: #383838;
+  font-family: consolas;
+  resize: none;
+}
+
+.CodeMirror {
+  height: 100%;
+}
+
+#filereader {
+  text-align: center;
+}
+
+#grapharea {
+  background-image: -webkit-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
+  background-image: -moz-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
+  background-image: -ms-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
+  -webkit-background-size: 3px 3px;
+  -moz-background-size: 3px 3px;
+  background-size: 3px 3px;
+  }

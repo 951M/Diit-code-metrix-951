@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="840.0" height="733.0" viewBox="70.0 -132.0 840.0 733.0" version="1.1">
+<rect x="70.0" y="-132.0" width="840.0" height="733.0" fill="rgb(255,255,255)"/>
+<g id="g211071">
+<ellipse id="s10622099" cx="130.0" cy="318.0" rx="15.0" ry="18.000008" fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<path id="s66698448" d="M 129.99998,336.00003 130.00002,378.00003 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<path id="s29160649" d="M 100.0,348.0001 159.99998,348.0001 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<path id="s209692622" d="M 130.00002,378.00003 99.99999,419.99994 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<path id="s248473327" d="M 130.00002,378.00003 159.99998,420.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+</g>
+<g id="s231731276">
+<ellipse id="s231731276" cx="300.0" cy="300.0" rx="60.0" ry="40.0" fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t231731276">
+<text x="277.5" y="294.58203" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="45.0">Analize</text>
+<text x="273.0" y="313.1621" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="54.0">program</text>
+</g>
+</g>
+<g id="s59287701">
+<ellipse id="s59287701" cx="340.0" cy="410.0" rx="60.0" ry="30.0" fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t59287701">
+<text x="299.0" y="413.87207" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="82.0">Create report</text>
+</g>
+</g>
+<g id="s214654378">
+<ellipse id="s214654378" cx="180.00015" cy="199.99998" rx="60.0" ry="39.999996" fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t214654378">
+<text x="139.00015" y="203.87206" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="82.0">work with file</text>
+</g>
+</g>
+<g id="s77389211" transform="rotate(160,240,000000,50,000000)">
+<ellipse id="s77389211" cx="240.0" cy="50.0" rx="60.0" ry="30.0" fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t77389211">
+<text x="213.5" y="53.87207" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="53.0">Read file</text>
+</g>
+</g>
+<g id="s53593400">
+<ellipse id="s53593400" cx="330.0" cy="130.0" rx="50.0" ry="30.0" fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t53593400">
+<text x="303.5" y="133.87207" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="53.0">Write file</text>
+</g>
+</g>
+<g id="s127416593">
+<ellipse id="s127416593" cx="410.00003" cy="190.00003" rx="50.0" ry="30.0" fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t127416593">
+<text x="389.50003" y="175.29202" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="41.0">Create</text>
+<text x="381.50003" y="193.8721" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="57.0">Holsted's</text>
+<text x="387.00003" y="212.45218" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="46.0">metrics</text>
+</g>
+</g>
+<g id="s22653558">
+<ellipse id="s22653558" cx="530.00024" cy="470.00006" rx="50.0" ry="30.0" fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t22653558">
+<text x="509.50024" y="455.29205" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="41.0">Create</text>
+<text x="502.50024" y="473.87213" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="55.0">McKeib's</text>
+<text x="507.00024" y="492.4522" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="46.0">metrics</text>
+</g>
+</g>
+<g id="s39958647">
+<ellipse id="s39958647" cx="700.00024" cy="430.0" rx="60.0" ry="30.0" fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t39958647">
+<text x="680.50024" y="415.292" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="39.0">create</text>
+<text x="673.00024" y="433.87207" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="54.0">orientied</text>
+<text x="678.00024" y="452.45215" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="44.0">graphs</text>
+</g>
+</g>
+<g id="s215612644">
+<ellipse id="s215612644" cx="720.00024" cy="530.0" rx="59.999996" ry="30.0" fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t215612644">
+<text x="692.00024" y="515.292" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="56.0">calculate</text>
+<text x="688.50024" y="533.8721" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="63.0">ciclomatic</text>
+<text x="703.00024" y="552.45215" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="34.0">score</text>
+</g>
+</g>
+<g id="s3560781">
+<ellipse id="s3560781" cx="440.0" cy="30.0" rx="60.0" ry="30.0" fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t3560781">
+<text x="412.0" y="24.582031" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="56.0">calculate</text>
+<text x="409.5" y="43.16211" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="61.0">operators</text>
+</g>
+</g>
+<g id="s195950594">
+<ellipse id="s195950594" cx="570.0" cy="59.999996" rx="70.0" ry="39.999996" fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t195950594">
+<text x="542.0" y="54.58203" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="56.0">calculate</text>
+<text x="540.5" y="73.16211" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="59.0">operands</text>
+</g>
+</g>
+<g id="s237987091">
+<ellipse id="s237987091" cx="670.0" cy="110.0" rx="50.0" ry="30.0" fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t237987091">
+<text x="640.5" y="104.58203" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="59.0">callculate</text>
+<text x="635.5" y="123.16211" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="69.0">vocabulary</text>
+</g>
+</g>
+<g id="s179045200">
+<ellipse id="s179045200" cx="810.0" cy="130.0" rx="50.0" ry="30.0" fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t179045200">
+<text x="782.0" y="124.58203" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="56.0">calculate</text>
+<text x="790.5" y="143.16211" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="39.0">length</text>
+</g>
+</g>
+<g id="s69204297">
+<ellipse id="s69204297" cx="350.0" cy="-50.0" rx="50.0" ry="30.000002" fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t69204297">
+<text x="321.0" y="-64.70801" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="58.0">Calculate</text>
+<text x="327.0" y="-46.12793" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="46.0">distinct</text>
+<text x="319.5" y="-27.547852" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="61.0">operators</text>
+</g>
+</g>
+<g id="s117936718" transform="rotate(20,467,443573,-72,214020)">
+<ellipse id="s117936718" cx="467.44357" cy="-72.21402" rx="60.0" ry="30.0" fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t117936718">
+<text x="422.44357" y="-77.63199" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="90.0">Calculate total</text>
+<text x="436.94357" y="-59.05191" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="61.0">operators</text>
+</g>
+</g>
+<g id="s52510575">
+<ellipse id="s52510575" cx="590.0" cy="-50.0" rx="50.0" ry="30.0" fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t52510575">
+<text x="561.0" y="-64.70801" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="58.0">Calculate</text>
+<text x="567.0" y="-46.12793" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="46.0">distinct</text>
+<text x="560.5" y="-27.547852" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="59.0">operands</text>
+</g>
+</g>
+<g id="s89523324" transform="rotate(40,690,000000,-10,000000)">
+<ellipse id="s89523324" cx="690.0" cy="-10.0" rx="50.0" ry="30.0" fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t89523324">
+<text x="661.0" y="-24.708008" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="58.0">Calculate</text>
+<text x="675.5" y="-6.1279297" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="29.0">total</text>
+<text x="660.5" y="12.452148" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="59.0">operands</text>
+</g>
+</g>
+<g id="s249946373">
+<ellipse id="s249946373" cx="710.0" cy="190.0" rx="50.000004" ry="30.0" fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t249946373">
+<text x="682.0" y="175.29199" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="56.0">calculate</text>
+<text x="681.0" y="193.87207" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="58.0">teoretical</text>
+<text x="690.5" y="212.45215" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="39.0">length</text>
+</g>
+</g>
+<g id="s21923162">
+<ellipse id="s21923162" cx="830.0" cy="210.0" rx="50.0" ry="30.000002" fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t21923162">
+<text x="801.0" y="204.58203" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="58.0">Calculate</text>
+<text x="806.0" y="223.16211" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="48.0">Difficult</text>
+</g>
+</g>
+<g id="s145515403">
+<ellipse id="s145515403" cx="640.00006" cy="260.00003" rx="40.0" ry="20.0" fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t145515403">
+<text x="612.00006" y="254.58206" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="56.0">calculate</text>
+<text x="622.50006" y="273.16214" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="35.0">effort</text>
+</g>
+</g>
+<g id="s3992680">
+<ellipse id="s3992680" cx="669.9999" cy="310.00003" rx="50.0" ry="30.0" fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t3992680">
+<text x="641.9999" y="304.58206" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="56.0">calculate</text>
+<text x="631.9999" y="323.16214" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="76.0">time to code</text>
+</g>
+</g>
+<g id="s174622849">
+<ellipse id="s174622849" cx="509.99994" cy="320.00003" rx="70.0" ry="40.0" fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t174622849">
+<text x="456.49994" y="314.58206" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="107.0">calculate number</text>
+<text x="457.49994" y="333.16214" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="105.0">of delivered bugs</text>
+</g>
+</g>
+<g id="la215981350">
+<path id="s215981350" d="M 149.99998,300.0 157.03914,236.95517 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<path id="s193320444" d="M 163.70357,246.93442 157.03914,236.95517 148.33783,245.21878 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t215981350"/>
+</g>
+<g id="la242986343">
+<path id="s242986343" d="M 222.42657,171.71573 294.64465,151.2132 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<path id="s202839173" d="M 287.92673,161.15651 294.64465,151.2132 283.7042,146.28305 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t242986343">
+<text x="222.03561" y="152.17442" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="73.0">&lt;&lt;Include&gt;&gt;</text>
+</g>
+</g>
+<g id="la237528852">
+<path id="s237528852" d="M 180.00015,159.99998 207.38754,84.44458 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<path id="s32666330" d="M 211.52766,95.70776 207.38754,84.44458 196.99193,90.438835 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t237528852">
+<text x="157.19385" y="122.22228" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="73.0">&lt;&lt;Include&gt;&gt;</text>
+</g>
+</g>
+<g id="la68430781">
+<path id="s68430781" d=" M159.99998,340.0  C208.62938,337.42902 221.41016,324.13916 244.56723,315.30734 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<path id="s30769931" d="M 238.74644,325.8011 244.56723,315.30734 233.23683,311.35486 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t68430781"/>
+</g>
+<g id="la51930546">
+<path id="s51930546" d=" M300.0,260.0  C340.52164,213.77345 321.7862,234.94183 374.64468,211.21323 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<path id="s190338536" d="M 369.43753,222.02458 374.64468,211.21323 363.1056,207.9194 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t51930546">
+<text x="296.19604" y="227.16989" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="73.0">&lt;&lt;Include&gt;&gt;</text>
+</g>
+</g>
+<g id="la168540419">
+<path id="s168540419" d="M 355.43277,315.30734 483.80627,481.48056 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<path id="s137982977" d="M 472.07755,478.94345 483.80627,481.48056 484.31296,469.49127 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t168540419">
+<text x="383.11954" y="398.39395" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="73.0">&lt;&lt;Include&gt;&gt;</text>
+</g>
+</g>
+<g id="la78569600">
+<path id="s78569600" d="M 657.57385,451.2132 576.1942,458.51956 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<path id="s194306726" d="M 584.6443,449.9992 576.1942,458.51956 586.02686,465.3985 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t78569600">
+<text x="581.88403" y="445.57635" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="70.0">&lt;&lt;extend&gt;&gt;</text>
+</g>
+</g>
+<g id="la165463737">
+<path id="s165463737" d=" M159.99998,360.0  C235.05173,375.47977 226.8691,365.01025 280.0,410.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<path id="s232211687" d="M 268.00003,409.9686 280.0,410.0 277.99133,398.1693 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t165463737"/>
+</g>
+<g id="la61025022">
+<path id="s61025022" d=" M660.00024,530.0  C641.7832,524.2827 587.7396,541.92316 565.3556,491.21326 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<path id="s223406228" d="M 648.9284,534.62756 660.00024,530.0 653.55817,519.8758 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t61025022">
+<text x="577.74054" y="518.18884" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="73.0">&lt;&lt;Include&gt;&gt;</text>
+</g>
+</g>
+<g id="la34005599">
+<path id="s34005599" d="M 410.00003,160.00003 417.039,57.716385 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<path id="s147345213" d="M 424.12125,67.40359 417.039,57.716385 408.6965,66.34209 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t34005599">
+<text x="377.01953" y="108.858215" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="73.0">&lt;&lt;Include&gt;&gt;</text>
+</g>
+</g>
+<g id="la174163116">
+<path id="s174163116" d="M 445.35538,168.78683 543.21216,96.95517 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<path id="s194806578" d="M 540.38794,108.61809 543.21216,96.95517 531.2389,96.154335 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t174163116">
+<text x="457.78375" y="132.871" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="73.0">&lt;&lt;Include&gt;&gt;</text>
+</g>
+</g>
+<g id="la184161653">
+<path id="s184161653" d="M 456.194,201.48053 634.64465,131.2132 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<path id="s206129283" d="M 628.93713,141.76895 634.64465,131.2132 623.2724,127.382835 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t184161653">
+<text x="508.9193" y="157.05682" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="73.0">&lt;&lt;Include&gt;&gt;</text>
+</g>
+</g>
+<g id="la209910026">
+<path id="s209910026" d="M 445.35538,211.21323 760.0,130.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<path id="s127793664" d="M 753.04517,139.77908 760.0,130.0 749.1811,124.8085 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t209910026">
+<text x="566.1777" y="161.31656" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="73.0">&lt;&lt;Include&gt;&gt;</text>
+</g>
+</g>
+<g id="la56706427">
+<path id="s56706427" d="M 369.13416,-22.283613 397.57358,8.786802 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<path id="s208642617" d="M 381.03354,-20.732996 369.13416,-22.283613 369.6286,-10.293804 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t56706427">
+<text x="346.85388" y="-6.7484055" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="73.0">&lt;&lt;Include&gt;&gt;</text>
+</g>
+</g>
+<g id="la196624280">
+<path id="s196624280" d="M 462.96103,2.283617 479.54028,-38.316013 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<path id="s761982" d="M 483.22736,-26.896488 479.54028,-38.316013 468.9136,-32.74165 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t196624280">
+<text x="434.75067" y="-18.016197" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="73.0">&lt;&lt;Include&gt;&gt;</text>
+</g>
+</g>
+<g id="la140743665">
+<path id="s140743665" d="M 570.0,20.0 590.0,-20.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<path id="s256764383" d="M 592.8099,-8.333617 590.0,-20.0 578.98096,-15.248087 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t140743665">
+<text x="543.5" y="1.9073486E-6" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="73.0">&lt;&lt;Include&gt;&gt;</text>
+</g>
+</g>
+<g id="la115317718">
+<path id="s115317718" d="M 634.6716,44.69268 686.84186,23.531181 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<path id="s48805420" d="M 681.24255,34.144753 686.84186,23.531181 675.431,19.817318 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t115317718">
+<text x="624.2567" y="24.821892" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="73.0">&lt;&lt;Include&gt;&gt;</text>
+</g>
+</g>
+<g id="la204783191">
+<path id="s204783191" d="M 445.35538,211.21323 674.64465,168.7868 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<path id="s111094005" d="M 667.0263,178.0583 674.64465,168.7868 664.2132,162.85515 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t204783191">
+<text x="523.5" y="180.70999" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="73.0">&lt;&lt;Include&gt;&gt;</text>
+</g>
+</g>
+<g id="la45989188">
+<path id="s45989188" d="M 445.35538,211.21323 794.64465,231.21321 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<path id="s45958794" d="M 785.0396,238.40651 794.64465,231.21321 785.92346,222.97057 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t45989188">
+<text x="583.5" y="211.9232" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="73.0">&lt;&lt;Include&gt;&gt;</text>
+</g>
+</g>
+<g id="la17595949">
+<path id="s17595949" d="M 445.35538,211.21323 603.04486,267.6537 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<path id="s248595707" d="M 591.79846,271.83923 603.04486,267.6537 597.0087,257.28235 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t17595949">
+<text x="487.70013" y="230.1434" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="73.0">&lt;&lt;Include&gt;&gt;</text>
+</g>
+</g>
+<g id="la76652386">
+<path id="s76652386" d="M 445.35538,211.21323 619.9999,310.00003 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<path id="s121702680" d="M 608.20514,312.21005 619.9999,310.00003 615.8173,298.75253 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t76652386">
+<text x="496.1776" y="260.60663" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="73.0">&lt;&lt;Include&gt;&gt;</text>
+</g>
+</g>
+<g id="la140306675">
+<path id="s140306675" d="M 429.13422,217.71642 483.2121,283.04486 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<path id="s134635377" d="M 471.40457,280.90427 483.2121,283.04486 483.31464,271.0453 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t140306675">
+<text x="419.67316" y="250.38065" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="73.0">&lt;&lt;Include&gt;&gt;</text>
+</g>
+</g>
+</svg>

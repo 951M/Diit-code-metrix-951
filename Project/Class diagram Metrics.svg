@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1840.0" height="1122.0" viewBox="10.0 -493.0 1840.0 1122.0" version="1.1">
+<rect x="10.0" y="-493.0" width="1840.0" height="1122.0" fill="rgb(255,255,255)"/>
+<g id="s211127586">
+<polygon id="s211127586" points="560.0,159.99998 700.0,159.99998 700.0,280.0 560.0,280.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t211127586">
+<text x="589.0" y="186.71191" font-family="Helvetica" font-style="italic" fill="rgb(0,0,0)" font-size="14" textLength="82.0">&lt;&lt;interface&gt;&gt;</text>
+<text x="583.0" y="205.29199" font-family="Helvetica" font-weight="bold" fill="rgb(0,0,0)" font-size="14" textLength="94.0">ISourceLoader</text>
+<path id="s159586712" d="M 560.0,220.0 700.0,220.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<text x="565.0" y="242.45215" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="59.0">Init():void</text>
+<text x="565.0" y="261.03223" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="78.0">Data():byte[]</text>
+</g>
+</g>
+<g id="s117023667">
+<polygon id="s117023667" points="400.00003,380.0 620.0,380.0 620.00006,540.0 400.00006,540.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t117023667">
+<text x="453.00006" y="408.13184" font-family="Helvetica" font-weight="bold" fill="rgb(0,0,0)" font-size="14" textLength="114.0">FileSourceLoader</text>
+<path id="s36595185" d="M 400.00003,422.83984 620.0,422.83984 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<text x="405.00006" y="445.292" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="75.0">+data:byte[]</text>
+<text x="405.00006" y="463.87207" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="76.0">+path:string</text>
+<path id="s171378134" d="M 400.00006,478.58008 620.00006,478.58008 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<text x="405.00006" y="501.03223" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="194.0">+FileSourceWorker(path:string)</text>
+<text x="405.00006" y="519.6123" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="178.0">#ReadFile(path:string):byte[]</text>
+</g>
+</g>
+<g id="s127757680">
+<polygon id="s127757680" points="740.0,180.0 939.9996,180.0 940.0,440.0 740.0,440.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t127757680">
+<text x="785.5" y="211.68164" font-family="Helvetica" font-weight="bold" fill="rgb(0,0,0)" font-size="14" textLength="109.0">GitSourceLoader</text>
+<path id="s112779351" d="M 740.0,226.38965 939.99963,226.38965 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<text x="745.0" y="248.8418" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="99.0">client:HttpClient</text>
+<text x="745.0" y="267.42188" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="75.0">+data:byte[]</text>
+<text x="745.0" y="286.00195" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="98.0">+hashSumm:int</text>
+<text x="745.0" y="304.58203" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="63.0">+url:string</text>
+<text x="745.0" y="323.1621" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="108.0">+credential:string</text>
+<path id="s190592836" d="M 740.0,337.87012 939.9998,337.87012 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<text x="745.0" y="360.32227" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="176.0">+GitSourceWorker(url:string,</text>
+<text x="745.0" y="378.90234" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="132.0">credential:Credential)</text>
+<text x="745.0" y="397.48242" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="179.0">#DownloadAsByte(url:string,</text>
+<text x="745.0" y="416.0625" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="170.0">credential:Credential):byte[]</text>
+</g>
+</g>
+<g id="s167766249">
+<polygon id="s167766249" points="760.0,480.0 920.0,480.0 920.0,600.0 760.0,600.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t167766249">
+<text x="806.5" y="506.7119" font-family="Helvetica" font-weight="bold" fill="rgb(0,0,0)" font-size="14" textLength="67.0">Credential</text>
+<path id="s28471341" d="M 760.0,521.4199 920.0,521.4199 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<text x="765.0" y="543.8721" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="74.0">+user:string</text>
+<text x="765.0" y="562.45215" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="109.0">+password:string</text>
+<text x="765.0" y="581.0322" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="87.0">+sslcert:byte[]</text>
+</g>
+</g>
+<g id="s136534382">
+<polygon id="s136534382" points="999.99994,159.99998 1220.0,159.99998 1220.0,279.99997 999.99994,279.99994 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t136534382">
+<text x="1069.0" y="186.71188" font-family="Helvetica" font-style="italic" fill="rgb(0,0,0)" font-size="14" textLength="82.0">&lt;&lt;interface&gt;&gt;</text>
+<text x="1068.0" y="205.29196" font-family="Helvetica" font-weight="bold" fill="rgb(0,0,0)" font-size="14" textLength="84.0">IResultWriter</text>
+<path id="s116762978" d="M 999.99994,219.99997 1220.0,219.99997 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<text x="1005.0" y="242.45212" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="183.0">SaveMetrics(metrics:IMetrics,</text>
+<text x="1005.0" y="261.0322" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="102.0">path:string):void</text>
+</g>
+</g>
+<g id="s90228751">
+<polygon id="s90228751" points="1040.0,-280.0 1280.0,-280.0 1280.0,-60.00008 1040.0,-59.999996 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t90228751">
+<text x="1119.0" y="-249.73828" font-family="Helvetica" font-style="italic" fill="rgb(0,0,0)" font-size="14" textLength="82.0">&lt;&lt;interface&gt;&gt;</text>
+<text x="1109.0" y="-231.1582" font-family="Helvetica" font-weight="bold" fill="rgb(0,0,0)" font-size="14" textLength="102.0">IHalstedMetrics</text>
+<path id="s67185395" d="M 1040.0,-216.4502 1280.0,-216.4502 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<text x="1045.0" y="-193.99805" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="90.0">Vocabulary:int</text>
+<text x="1045.0" y="-175.41797" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="63.0">Length:int</text>
+<text x="1045.0" y="-156.83789" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="129.0">CalculatedLength:int</text>
+<text x="1045.0" y="-138.25781" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="74.0">Difficulty:int</text>
+<text x="1045.0" y="-119.677734" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="55.0">Effort:int</text>
+<text x="1045.0" y="-101.09766" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="97.0">TimeToCode:int</text>
+<text x="1045.0" y="-82.51758" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="172.0">NumberOfDeliveredBugs:int</text>
+</g>
+</g>
+<g id="s29618332">
+<polygon id="s29618332" points="1300.0,-280.0 1540.0,-280.0 1540.0,-159.99998 1300.0,-160.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t29618332">
+<text x="1379.0" y="-253.28809" font-family="Helvetica" font-style="italic" fill="rgb(0,0,0)" font-size="14" textLength="82.0">&lt;&lt;interface&gt;&gt;</text>
+<text x="1368.0" y="-234.70801" font-family="Helvetica" font-weight="bold" fill="rgb(0,0,0)" font-size="14" textLength="104.0">IMcCabeMetrics</text>
+<path id="s176653232" d="M 1300.0,-220.0 1540.0,-220.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<text x="1305.0" y="-197.54785" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="205.0">complexityList:List&lt;GraphEntity&gt;</text>
+<text x="1305.0" y="-178.96777" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="136.0">complexityNumber:int</text>
+</g>
+</g>
+<g id="s140847781">
+<polygon id="s140847781" points="1160.0,0.0 1300.0,0.0 1300.0,80.000015 1160.0,80.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t140847781">
+<text x="1189.0" y="34.58204" font-family="Helvetica" font-style="italic" fill="rgb(0,0,0)" font-size="14" textLength="82.0">&lt;&lt;interface&gt;&gt;</text>
+<text x="1204.0" y="53.162117" font-family="Helvetica" font-weight="bold" fill="rgb(0,0,0)" font-size="14" textLength="52.0">IMetrics</text>
+</g>
+</g>
+<g id="s112172666">
+<polygon id="s112172666" points="920.0,-20.0 1060.0,-20.0 1060.0,80.0 920.0,80.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t112172666">
+<text x="966.0" y="33.87207" font-family="Helvetica" font-weight="bold" fill="rgb(0,0,0)" font-size="14" textLength="48.0">Metrics</text>
+</g>
+</g>
+<g id="s124507691">
+<polygon id="s124507691" points="1380.0,-120.0 1660.0,-120.0 1660.0,-19.999996 1380.0,-20.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t124507691">
+<text x="1479.0" y="-93.99805" font-family="Helvetica" font-style="italic" fill="rgb(0,0,0)" font-size="14" textLength="82.0">&lt;&lt;interface&gt;&gt;</text>
+<text x="1474.5" y="-75.41797" font-family="Helvetica" font-weight="bold" fill="rgb(0,0,0)" font-size="14" textLength="91.0">IGraphCreator</text>
+<path id="s267575849" d="M 1380.0,-60.70996 1660.0,-60.70996 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<text x="1385.0" y="-38.257813" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="242.0">DrawGraph(List&lt;GraphEntity&gt;):Bitmap</text>
+</g>
+</g>
+<g id="s74283656">
+<polygon id="s74283656" points="1540.0,-420.0 1780.0,-420.0 1780.0,-300.0 1540.0,-300.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t74283656">
+<text x="1622.0" y="-393.2881" font-family="Helvetica" font-weight="bold" fill="rgb(0,0,0)" font-size="14" textLength="76.0">GraphEntity</text>
+<path id="s588206" d="M 1540.0,-378.58008 1780.0,-378.58008 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<text x="1545.0" y="-356.12793" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="77.0">+Number:int</text>
+<text x="1545.0" y="-337.54785" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="103.0">+LineNumber:int</text>
+<text x="1545.0" y="-318.96777" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="206.0">+ConnectedTo:List&lt;GraphEntity&gt;</text>
+</g>
+</g>
+<g id="s186829857">
+<polygon id="s186829857" points="1380.0,40.0 1580.0,40.0 1579.9999,99.99999 1380.0,100.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t186829857">
+<text x="1408.5" y="73.87207" font-family="Helvetica" font-weight="bold" fill="rgb(0,0,0)" font-size="14" textLength="143.0">OrientedGraphCreator</text>
+</g>
+</g>
+<g id="s176760902">
+<polygon id="s176760902" points="140.0,380.0 339.9999,380.0 340.0,540.0 140.0,540.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t176760902">
+<text x="199.0" y="417.42188" font-family="Helvetica" font-style="italic" fill="rgb(0,0,0)" font-size="14" textLength="82.0">&lt;&lt;interface&gt;&gt;</text>
+<text x="198.0" y="436.00195" font-family="Helvetica" font-weight="bold" fill="rgb(0,0,0)" font-size="14" textLength="84.0">StringLoader</text>
+<path id="s175735631" d="M 140.0,450.70996 339.99994,450.70996 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<text x="145.0" y="473.1621" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="71.0">-data:byte[]</text>
+<path id="s165227228" d="M 140.0,487.87012 339.99997,487.87012 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<text x="145.0" y="510.32227" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="167.0">+StringLoader(string data)</text>
+</g>
+</g>
+<g id="s47163911">
+<polygon id="s47163911" points="580.00006,20.0 840.0,20.0 840.0,120.00003 580.00006,120.00003 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t47163911">
+<text x="669.0" y="46.00197" font-family="Helvetica" font-style="italic" fill="rgb(0,0,0)" font-size="14" textLength="82.0">&lt;&lt;interface&gt;&gt;</text>
+<text x="660.0" y="64.58205" font-family="Helvetica" font-weight="bold" fill="rgb(0,0,0)" font-size="14" textLength="100.0">IMetricsCreator</text>
+<path id="s246314981" d="M 580.00006,79.290054 840.0,79.290054 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<text x="585.0" y="101.7422" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="230.0">CreateMetrics(source:byte[]):IMetrics</text>
+</g>
+</g>
+<g id="s10729268">
+<polygon id="s10729268" points="960.0,320.0 1280.0,320.0 1280.0,460.0 960.0,460.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t10729268">
+<text x="1068.0" y="347.42188" font-family="Helvetica" font-weight="bold" fill="rgb(0,0,0)" font-size="14" textLength="104.0">FileResultWriter</text>
+<path id="s149881530" d="M 960.0,362.12988 1280.0,362.12988 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<text x="965.0" y="384.58203" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="181.0">-graphCreator:IGraphCreator</text>
+<path id="s108332395" d="M 960.0,399.29004 1280.0,399.29004 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<text x="965.0" y="421.7422" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="290.0">+FileResultWriter(graphCreator:IGraphCreator,</text>
+<text x="965.0" y="440.32227" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="146.0">saveType:ReportTypes)</text>
+</g>
+</g>
+<g id="s230623581">
+<polygon id="s230623581" points="280.00003,-260.0 620.00006,-260.0 620.0,-20.000101 280.00003,-20.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t230623581">
+<text x="377.00006" y="-229.02832" font-family="Helvetica" font-weight="bold" fill="rgb(0,0,0)" font-size="14" textLength="146.0">HalstedMetricsCreator</text>
+<path id="s54270152" d="M 280.00003,-214.32031 620.00006,-214.32031 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<text x="285.00006" y="-191.86816" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="182.0">-distinctOperatorsCounter:int</text>
+<text x="285.00006" y="-173.28809" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="180.0">-distinctOperandsCounter:int</text>
+<text x="285.00006" y="-154.70801" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="165.0">-totalOperatorsCounter:int</text>
+<text x="285.00006" y="-136.12793" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="163.0">-totalOperandsCounter:int</text>
+<text x="285.00006" y="-117.54785" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="141.0">-operators:List&lt;string&gt;</text>
+<text x="285.00006" y="-98.96777" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="139.0">-operands:List&lt;string&gt;</text>
+<path id="s47426913" d="M 280.00003,-84.259766 620.0,-84.259766 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<text x="285.00006" y="-61.807617" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="308.0">+HalstedMetricsCreator(analizer:ILexicalAnalizer)</text>
+<text x="285.00006" y="-43.22754" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="219.0">-CalculateMetrics():IHalstedMetrics</text>
+</g>
+</g>
+<g id="s169837266">
+<polygon id="s169837266" points="660.0,-280.0 1000.0,-280.0 1000.0,-99.99999 660.0,-100.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t169837266">
+<text x="758.0" y="-251.1582" font-family="Helvetica" font-weight="bold" fill="rgb(0,0,0)" font-size="14" textLength="144.0">McCeibMetricsCreator</text>
+<path id="s217747590" d="M 660.0,-236.4502 1000.0,-236.4502 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<text x="665.0" y="-213.99805" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="246.0">-complexityList:List&lt;List&lt;GraphEntity&gt;&gt;</text>
+<text x="665.0" y="-195.41797" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="145.0">-counterOfBranches:int</text>
+<text x="665.0" y="-176.83789" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="136.0">-procedureCounter:int</text>
+<path id="s207392071" d="M 660.0,-162.12988 1000.0,-162.12988 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<text x="665.0" y="-139.67773" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="306.0">+McCeibMetricsCreator(analizer:ILexicalAnalizer)</text>
+<text x="665.0" y="-121.09766" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="222.0">-CalculateMetrics():IMcCabeMetrics</text>
+</g>
+</g>
+<g id="s162717603">
+<polygon id="s162717603" points="80.000015,-440.0 480.00006,-440.0 480.00006,-300.0 79.99999,-300.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t162717603">
+<text x="239.00003" y="-412.57813" font-family="Helvetica" font-style="italic" fill="rgb(0,0,0)" font-size="14" textLength="82.0">&lt;&lt;interface&gt;&gt;</text>
+<text x="228.50003" y="-393.99805" font-family="Helvetica" font-weight="bold" fill="rgb(0,0,0)" font-size="14" textLength="103.0">ILexicalAnalizer</text>
+<path id="s39713140" d="M 80.00001,-379.29004 480.00006,-379.29004 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<text x="85.0" y="-356.8379" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="365.0">GetOperatorsAndOperandsInLine(line:string):Tuple&lt;int,int&gt;</text>
+<text x="85.0" y="-338.2578" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="164.0">IsProcedure(line:string):int</text>
+<text x="85.0" y="-319.67773" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="247.0">GetCountOfBranchInLine(line:string):int</text>
+</g>
+</g>
+<g id="s207557280">
+<polygon id="s207557280" points="40.000008,-220.0 239.99991,-220.0 239.99991,-140.0 40.000008,-140.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t207557280">
+<text x="71.49997" y="-194.70801" font-family="Helvetica" font-weight="bold" fill="rgb(0,0,0)" font-size="14" textLength="137.0">SharpLexicalAnalizer</text>
+<path id="s129810077" d="M 40.000008,-180.0 239.99991,-180.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<text x="45.000015" y="-157.54785" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="161.0">List&lt;(int,bool)&gt;blockStack</text>
+</g>
+</g>
+<g id="s65527385">
+<polygon id="s65527385" points="200.00002,180.0 340.0,180.0 340.0,280.0 200.00002,280.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t65527385">
+<text x="242.5" y="215.29199" font-family="Helvetica" font-weight="bold" fill="rgb(0,0,0)" font-size="14" textLength="55.0">Program</text>
+<path id="s132067090" d="M 200.00002,230.0 340.0,230.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<text x="205.0" y="252.45215" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="49.0">+Main()</text>
+</g>
+</g>
+<g id="s21953054">
+<polygon id="s21953054" points="300.0,40.0 440.0,40.0 440.0,140.0 300.0,140.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t21953054">
+<text x="322.0" y="93.87207" font-family="Helvetica" font-weight="bold" fill="rgb(0,0,0)" font-size="14" textLength="96.0">MetricsCreator</text>
+</g>
+</g>
+<g id="s643839">
+<polygon id="s643839" points="1360.0,300.0 1500.0,300.0 1500.0,400.0 1360.0,400.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t643839">
+<text x="1376.0" y="316.7119" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="108.0">&lt;&lt;Enumeration&gt;&gt;</text>
+<text x="1390.5" y="335.292" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="79.0">ReportTypes</text>
+<path id="s72005347" d="M 1360.0,350.0 1500.0,350.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<text x="1365.0" y="372.45215" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="30.0">Html</text>
+<text x="1365.0" y="391.03223" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="22.0">Pdf</text>
+</g>
+</g>
+<g id="s45267148">
+<polygon id="s45267148" points="1640.0,40.0 1820.0,40.0 1819.9999,99.999985 1640.0,100.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t45267148">
+<text x="1649.5" y="73.87207" font-family="Helvetica" fill="rgb(0,0,0)" font-size="14" textLength="161.0">DataStreamGraphCreator</text>
+</g>
+</g>
+<g id="la70190869">
+<path id="s70190869" d="M 630.0,280.0 576.0,380.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<polygon id="s236665056" points="630.0,280.0 630.0584,291.99985 619.934,286.53268 " fill="rgb(255,255,255)" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t70190869"/>
+</g>
+<g id="la191666730">
+<path id="s191666730" d="M 740.0,270.0 700.0,260.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<polygon id="s170633113" points="700.0,260.0 711.6119,256.9728 708.8212,268.13547 " fill="rgb(255,255,255)" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t191666730"/>
+</g>
+<g id="la179478555">
+<path id="s179478555" d="M 840.0,480.0 840.0,440.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<path id="s184363614" d="M 832.2694,470.8219 840.0,480.0 847.7306,470.8219 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t179478555"/>
+</g>
+<g id="la179869112">
+<path id="s179869112" d="M 1170.0,0.0 1207.9998,-60.000076 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<polygon id="s57138751" points="1207.9998,-60.000076 1207.2255,-48.025078 1197.5048,-54.18147 " fill="rgb(255,255,255)" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t179869112"/>
+</g>
+<g id="la42336145">
+<path id="s42336145" d="M 1290.0,0.0 1380.0,-160.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<polygon id="s212534028" points="1380.0,-160.0 1379.8513,-148.00092 1369.8228,-153.64197 " fill="rgb(255,255,255)" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t42336145"/>
+</g>
+<g id="la34746102">
+<path id="s34746102" d="M 1165.0,159.99998 1210.0,80.00001 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<path id="s117843029" d="M 1212.2382,91.789444 1210.0,80.00001 1198.7626,84.2094 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t34746102"/>
+</g>
+<g id="la72426231">
+<path id="s72426231" d="M 1060.0,30.0 1160.0,40.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<polygon id="s191729258" points="1160.0,40.0 1148.9489,44.67668 1150.0938,33.227573 " fill="rgb(255,255,255)" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t72426231"/>
+</g>
+<g id="la20796772">
+<path id="s20796772" d=" M1460.0,-280.0  C1479.4794,-306.03622 1517.2476,-315.39423 1540.0,-340.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<path id="s252059483" d="M 1539.4448,-328.01285 1540.0,-340.0 1528.0929,-338.5097 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t20796772"/>
+</g>
+<g id="la108659661">
+<path id="s108659661" d="M 1620.0,-120.0 1620.0,-300.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<path id="s244007928" d="M 1627.7306,-290.8219 1620.0,-300.0 1612.2694,-290.8219 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t108659661"/>
+</g>
+<g id="la212485250">
+<path id="s212485250" d="M 1500.0,40.0 1520.0,-19.999998 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<polygon id="s164737233" points="1520.0,-19.999998 1522.1277,-8.190131 1511.2119,-11.828715 " fill="rgb(255,255,255)" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t212485250"/>
+</g>
+<g id="la65730451">
+<path id="s65730451" d=" M279.99994,380.0  C335.7356,301.32135 456.28232,231.41666 560.0,240.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<polygon id="s80619318" points="560.0,240.0 549.0304,244.86496 549.9794,233.39795 " fill="rgb(255,255,255)" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t65730451"/>
+</g>
+<g id="la19686352">
+<path id="s19686352" d="M 1260.0002,320.0 1380.0,-20.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<path id="s92100151" d="M 1384.2352,-8.772234 1380.0,-20.0 1369.6554,-13.918032 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t19686352"/>
+</g>
+<g id="la154144713">
+<path id="s154144713" d="M 1073.3333,280.0 1080.0,320.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<polygon id="s204253092" points="1073.3333,280.0 1080.7394,289.4419 1069.3898,291.33353 " fill="rgb(255,255,255)" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t154144713"/>
+</g>
+<g id="la213657294">
+<path id="s213657294" d="M 620.0,-40.00003 690.0,20.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<polygon id="s116361485" points="690.0,20.0 678.2602,17.514605 685.74835,8.778438 " fill="rgb(255,255,255)" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t213657294"/>
+</g>
+<g id="la21199343">
+<path id="s21199343" d="M 750.0,-100.0 730.0,20.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<polygon id="s214794434" points="730.0,20.0 726.05646,8.66649 737.4061,10.5581 " fill="rgb(255,255,255)" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t21199343"/>
+</g>
+<g id="la112979196">
+<path id="s112979196" d=" M490.00003,-260.0  C534.8618,-462.8765 966.2643,-294.37537 1180.0,-280.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<path id="s147267283" d="M 1170.3239,-272.9027 1180.0,-280.0 1171.3613,-288.3291 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t112979196"/>
+</g>
+<g id="la119594885">
+<path id="s119594885" d="M 119.99997,-220.0 120.000046,-300.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<polygon id="s39754256" points="120.000046,-300.0 125.75314,-289.469 114.246925,-289.46902 " fill="rgb(255,255,255)" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t119594885"/>
+</g>
+<g id="la49799642">
+<path id="s49799642" d=" M790.0,-280.0  C672.55585,-408.51584 509.22833,-375.20944 480.00006,-390.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<path id="s228108553" d="M 491.67984,-392.75366 480.00006,-390.0 484.69885,-378.9582 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t49799642"/>
+</g>
+<g id="la49792523">
+<path id="s49792523" d=" M890.0,-280.0  C902.9366,-432.10114 1219.5509,-411.4975 1360.0,-280.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<path id="s58124046" d="M 1348.0165,-280.62964 1360.0,-280.0 1358.5836,-291.91614 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t49792523"/>
+</g>
+<g id="la156818664">
+<path id="s156818664" d="M 390.0,-260.0 400.0,-300.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<path id="s115004719" d="M 405.27377,-289.22098 400.0,-300.0 390.2742,-292.9709 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t156818664"/>
+</g>
+<g id="la26537729">
+<path id="s26537729" d="M 440.0,70.0 580.00006,70.000015 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<polygon id="s159074108" points="580.00006,70.000015 569.46906,75.75312 569.46906,64.24691 " fill="rgb(255,255,255)" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t26537729"/>
+</g>
+<g id="la151142822">
+<path id="s151142822" d="M 370.0,40.0 370.0,-20.000027 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<path id="s228183237" d="M 377.73062,-10.82192 370.0,-20.000027 362.26938,-10.82192 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t151142822"/>
+</g>
+<g id="la39499751">
+<path id="s39499751" d="M 440.0,130.0 850.0,130.0 850.0,-100.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<path id="s205415962" d="M 857.7306,-90.82189 850.0,-100.0 842.2694,-90.82189 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t39499751"/>
+</g>
+<g id="la139648916">
+<path id="s139648916" d="M 840.0,50.000015 920.0,30.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<path id="s197760331" d="M 912.9709,39.725815 920.0,30.0 909.221,24.726223 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t139648916"/>
+</g>
+<g id="la199260733">
+<path id="s199260733" d=" M250.0,180.0  C249.81766,175.04408 280.9385,121.06914 300.0,110.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<path id="s55810856" d="M 295.94522,121.29419 300.0,110.0 288.18097,107.92385 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t199260733"/>
+</g>
+<g id="la201380402">
+<path id="s201380402" d=" M340.0,270.0  C395.112,211.27122 501.0223,213.4689 560.0,180.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<path id="s214921281" d="M 555.83307,191.25331 560.0,180.0 548.2022,177.80641 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t201380402"/>
+</g>
+<g id="la17886083">
+<path id="s17886083" d=" M340.0,230.0  C505.2377,85.60371 945.9541,160.5642 999.99994,199.99997 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<path id="s197970406" d="M 988.02905,200.83493 999.99994,199.99997 997.14246,188.34515 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t17886083"/>
+</g>
+<g id="la105406720">
+<path id="s105406720" d="M 1280.0,390.0 1360.0,370.0 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<path id="s161102631" d="M 1352.9708,379.7258 1360.0,370.0 1349.221,364.72623 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t105406720"/>
+</g>
+<g id="la6257977">
+<path id="s6257977" d="M 1670.0,40.0 1620.0,-19.999996 " fill="none" stroke-width="2.0" stroke="rgb(0,0,0)" stroke-dasharray="7.0 7.0"/>
+<polygon id="s198918612" points="1620.0,-19.999996 1631.1614,-15.592915 1622.3221,-8.226816 " fill="rgb(255,255,255)" stroke-width="2.0" stroke="rgb(0,0,0)"/>
+<g id="t6257977"/>
+</g>
+</svg>

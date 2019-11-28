@@ -18,5 +18,8 @@ namespace Diit.CodeMetrics.Data
         public double OperandsCounter { get; set; }
         public double TeoryOperators { get; set; }
         public double TeoryOperands { get; set; }
+        // Gilb
+        public int ConditionOperatorsCount { get; set; }
+        public int AllOperatorsCount { get; set; }
     }
 }

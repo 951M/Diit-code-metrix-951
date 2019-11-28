@@ -11,11 +11,17 @@ namespace Diit.CodeMetrics.Services
         private readonly IMetricsCreator<IMcCeibMetrics> _mcCeibCreator;
         private readonly IMetricsCreator<IHalstedMetrics> _halstedCreator;
         private readonly ILogger<MetricsCreator> _logger;
-        
-        public MetricsCreator(IMetricsCreator<IMcCeibMetrics> mcCeibCreator, IMetricsCreator<IHalstedMetrics> halstedCreator, ILogger<MetricsCreator> logger)
+        private readonly IMetricsCreator<IGilbMetrics> _gilbCreator;
+
+
+        public MetricsCreator(IMetricsCreator<IMcCeibMetrics> mcCeibCreator,
+            IMetricsCreator<IHalstedMetrics> halstedCreator,
+            IMetricsCreator<IGilbMetrics> gilbCreator,
+            ILogger<MetricsCreator> logger)
         {
             _mcCeibCreator = mcCeibCreator;
             _halstedCreator = halstedCreator;
+            _gilbCreator = gilbCreator;
             _logger = logger;
         }
 
@@ -41,6 +47,17 @@ namespace Diit.CodeMetrics.Services
             catch (Exception e)
             {
                 _logger.LogError(e, "Exception in Halsted Metrics");
+            }
+
+            try
+            {
+                IGilbMetrics mcMetrics = _gilbCreator.CreateMetrics(source);
+                if (metrics != null)
+                    metrics.GMetrics = mcMetrics.GMetrics;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "Exception in Gilb Metrics");
             }
             return metrics ?? new Metrics();
         }

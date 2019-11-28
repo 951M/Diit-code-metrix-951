@@ -14,28 +14,11 @@ namespace Diit.CodeMetrics.Services.Analyzer
             switch (patternType)
             {
                 case PatterTypesEnum.ConditionOperatorsPatter:
-                    return new Regex( @"\^if|\^else");
+                    return new Regex( @"^(if|else)$");
                  case PatterTypesEnum.DividersPattern:
                     return new Regex(@"[\{\}\(\)\;\s]");
                 case PatterTypesEnum.OperatorsPattern:
-                    return new Regex(@"^if$
-|^else$
-|^while$
-|^for$
-|^foreach$
-|^dowhile$
-|^break$
-|^continue$
-|^throw$
-|^return$
-|^+
-|^-
-|^=
-|^*
-|^/
-|^!
-|^&&
-|^\|\|");
+                    return new Regex(@"(^(if|else|while|for$|foreach|dowhile|break|continue|throw|return)$)|(\+|-|=|\*|\/|\!|\&\&|\|\|<>)");
                 default:
                     return null;
             }

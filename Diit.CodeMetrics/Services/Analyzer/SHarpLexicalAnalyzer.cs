@@ -415,8 +415,8 @@ namespace Diit.CodeMetrics.Services.Analyzer
                 UniqueOperands = uniqueOperands.Count,
                 OperatorsCounter = operatorsCounter,
                 OperandsCounter = operandsCounter,
-                TeoryOperators = Convert.ToDouble(numberOperators[numberOperators.Count - 1]),
-                TeoryOperands = Convert.ToDouble(numberOperands[numberOperands.Count - 1])
+                TeoryOperators = numberOperators.Count != 0 ? Convert.ToDouble(numberOperators[numberOperators.Count - 1]) : 0,
+                TeoryOperands = numberOperators.Count != 0 ? Convert.ToDouble(numberOperands[numberOperands.Count - 1]) : 0
             };
             List<AnalyzerItem> IEN = new List<AnalyzerItem>();
             IEN.Add(item);

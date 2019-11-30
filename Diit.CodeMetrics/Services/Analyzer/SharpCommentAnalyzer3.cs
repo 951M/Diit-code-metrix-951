@@ -13,6 +13,51 @@ namespace Diit.CodeMetrics.Services.Analyzer
     {
         private readonly IHostingEnvironment _inv;
 
+        int deliter = 1;
+
+        static string[] s_operators = {
+                                "-"
+                                ,"+"
+                                ,"*"
+                                ,"/"
+                                ,"%"
+                                ,"--"
+                                ,"++"
+                                ,"+="
+                                ,"-="
+                                ,"*="
+                                ,"/="
+                                ,"%="
+                                ,">"
+                                ,">="
+                                ,"<"
+                                ,"<="
+                                ,"=="
+                                ,"="
+                                ,"!="
+                                ,"&&"
+                                ,"!"
+                                ,"&"
+                                ,"|"
+                                ,"^"
+                                ,"~"
+                                ,">>"
+                                ,"<<"
+                                ,"?"
+                                ,","
+                                ,"."
+                                ,"if"
+                                ,"else"
+                                ,"while"
+                                ,"for"
+                                ,"foreach"
+                                ,"break"
+                                ,"continue"
+                                ,"switch"
+                                ,"case"
+                                ,"return"
+};
+
         public SharpCommentAnalyzer(IHostingEnvironment inv)
         {
 
@@ -44,6 +89,7 @@ namespace Diit.CodeMetrics.Services.Analyzer
         ArrayList numberOperators = new ArrayList();
         ArrayList uniqueOperands = new ArrayList();
         ArrayList numberOperands = new ArrayList();
+        int commentOperatorAllNumber = 0;
         int commentCounter = 0;
         List<int> commentBlockCounter = new List<int>();
         List<int> operatorsBlockCounter = new List<int>();
@@ -161,6 +207,8 @@ namespace Diit.CodeMetrics.Services.Analyzer
 
         private void AnalysisComments(string source)
         {
+            commentBlockCounter.Clear();
+            operatorsBlockCounter.Clear();
             commentCounter = 0;
             var lines = source.Split('\n');
             linesNumber = lines.Length;
@@ -170,7 +218,6 @@ namespace Diit.CodeMetrics.Services.Analyzer
             int temp_commentCounter = 0;
 
             bool isprime = true;
-            int deliter = 1;
             for (int i = 2; i < linesNumber; i++)
             {
                 if (linesNumber % i == 0)
@@ -226,6 +273,7 @@ namespace Diit.CodeMetrics.Services.Analyzer
                 }
             }
 
+
             //commentCounter = 0;
             //var lines = source.Split('\n');
             //linesNumber = lines.Length - 1;
@@ -270,8 +318,57 @@ namespace Diit.CodeMetrics.Services.Analyzer
             int indexChars = 1;
             int indexWords = 1;
             bool flag;
-            for (int i = 0; i < readText.Length; i++) //проходим по всем символам одной строки
+            bool isComment = false;
+            int lineCounter = 1;
+            int lastSlashNIndex = 0;
+            int tempOperatorNumber = 0;
+            for (int i = 0; i < readText.Length; i++) // проходим по всем символам одной строки
             {
+                if (readText[i] == '\n' && i > lastSlashNIndex)
+                {
+                    lastSlashNIndex = i;
+                    lineCounter++;
+                }
+
+                if (lineCounter == deliter + 1)
+                {
+                    operatorsBlockCounter.Add(tempOperatorNumber);
+                    tempOperatorNumber = 0;
+                    lineCounter = 1;
+                }
+
+                if (isComment)
+                {
+                    if (i != readText.Length - 1)
+                    if (readText[i] == '*' && readText[i + 1] == '/')
+                    {
+                        isComment = false;
+                    }
+
+                    continue;
+                }
+                else
+                {
+                    if (i != readText.Length - 1)
+                    if (readText[i] == '/' && readText[i + 1] == '/')
+                    {
+                        commentCounter++;
+                            for (; i < readText.Length; i++)
+                                if (readText[i] == '\n')
+                                {
+                                    i--;
+                                    break;
+                                }
+                    }
+
+                    if (i != readText.Length - 1)
+                    if (readText[i] == '/' && readText[i + 1] == '*')
+                    {
+                        commentCounter++;
+                        isComment = true;
+                    }
+                }
+
                 flag = true;
                 if (indexChars == 1)
                 {
@@ -285,6 +382,11 @@ namespace Diit.CodeMetrics.Services.Analyzer
                             {
                                 CompareUniqueOperators(word._index);
                                 operatorsCounter++;
+                            }
+                            if (s_operators.Contains(temp) && i != 0 && readText[i - 1] != '*' && readText[i - 1] != '/')
+                            {
+                                tempOperatorNumber++;
+                                commentOperatorAllNumber++;
                             }
                             temp = "";
                             indexWords = 1;
@@ -305,6 +407,11 @@ namespace Diit.CodeMetrics.Services.Analyzer
                         {
                             flag = true;
                             resultText += temp;
+                            if (s_operators.Contains(temp) && i != 0 && readText[i - 1] != '*' && readText[i - 1] != '/')
+                            {
+                                tempOperatorNumber++;
+                                commentOperatorAllNumber++;
+                            }
                             temp = "";
                             indexWords = 1;
                             break;
@@ -319,6 +426,11 @@ namespace Diit.CodeMetrics.Services.Analyzer
                         {
                             flag = false;
                             resultText += "(2/" + @char._index + ")";
+                            if (s_operators.Contains(temp) && i != 0 && readText[i - 1] != '*' && readText[i - 1] != '/')
+                            {
+                                tempOperatorNumber++;
+                                commentOperatorAllNumber++;
+                            }
                             temp = "";
                             indexChars = 1;
                             i--;
@@ -363,6 +475,8 @@ namespace Diit.CodeMetrics.Services.Analyzer
                     resultText += readText[i];
                 }
             }
+
+            operatorsBlockCounter.Add(tempOperatorNumber);
         }
 
 
@@ -510,20 +624,21 @@ namespace Diit.CodeMetrics.Services.Analyzer
 
         public IEnumerable<AnalyzerItem> AnalyzeSource(string source)
         {
+            commentOperatorAllNumber = 0;
+            AnalysisComments(source);
             AnalysisWordsAndChars(source);
             AnalysisVariables(source);
             AnalysisLiteral();
-            AnalysisComments(source);
             numberOperators.Sort();
             numberOperands.Sort();
             AnalyzerItem item = new AnalyzerItem
             {
                 UniqueOperators = uniqueOperators.Count,
                 UniqueOperands = uniqueOperands.Count,
-                OperatorsCounter = operatorsCounter,
+                OperatorsCounter = commentOperatorAllNumber,
                 OperandsCounter = operandsCounter,
-                TeoryOperators = Convert.ToDouble(numberOperators[numberOperators.Count - 1]),
-                TeoryOperands = Convert.ToDouble(numberOperands[numberOperands.Count - 1]),
+                TeoryOperators = numberOperators.Count != 0 ? Convert.ToDouble(numberOperators[numberOperators.Count - 1]) : 0,
+                TeoryOperands = numberOperators.Count != 0 ? Convert.ToDouble(numberOperands[numberOperands.Count - 1]) : 0,
                 CommentCounter = commentCounter,
                 CommentBlockCounter = commentBlockCounter,
                 OperatorsBlockCounter = operatorsBlockCounter,

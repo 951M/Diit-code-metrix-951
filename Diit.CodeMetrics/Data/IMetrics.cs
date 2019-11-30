@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Diit.CodeMetrics.Data
 {
-    public interface IMetrics : IMcCeibMetrics, IHalstedMetrics
+    public interface IMetrics : IMcCeibMetrics, IHalstedMetrics, ICommentMetrics
     {
 
     }

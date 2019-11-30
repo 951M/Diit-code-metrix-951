@@ -10,12 +10,16 @@ namespace Diit.CodeMetrics.Services
     {
         private readonly IMetricsCreator<IMcCeibMetrics> _mcCeibCreator;
         private readonly IMetricsCreator<IHalstedMetrics> _halstedCreator;
+        private readonly IMetricsCreator<ICommentMetrics> _commentCreator;
         private readonly ILogger<MetricsCreator> _logger;
         
-        public MetricsCreator(IMetricsCreator<IMcCeibMetrics> mcCeibCreator, IMetricsCreator<IHalstedMetrics> halstedCreator, ILogger<MetricsCreator> logger)
+        public MetricsCreator(IMetricsCreator<IMcCeibMetrics> mcCeibCreator, IMetricsCreator<IHalstedMetrics> halstedCreator,
+            IMetricsCreator<ICommentMetrics> commentCreator, 
+            ILogger<MetricsCreator> logger)
         {
             _mcCeibCreator = mcCeibCreator;
             _halstedCreator = halstedCreator;
+            _commentCreator = commentCreator;
             _logger = logger;
         }
 
@@ -37,6 +41,10 @@ namespace Diit.CodeMetrics.Services
                 IHalstedMetrics mcMetrics = _halstedCreator.CreateMetrics(source);
                 if(metrics != null)
                     metrics.HMetrics = mcMetrics.HMetrics;
+
+                ICommentMetrics commMetrics = _commentCreator.CreateMetrics(source);
+                if (metrics != null)
+                    metrics.CMetrics = commMetrics.CMetrics;
             }
             catch (Exception e)
             {

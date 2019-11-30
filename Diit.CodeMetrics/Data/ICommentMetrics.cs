@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace Diit.CodeMetrics.Data
 {
 
-    public interface IHalstedMetrics : IBaseMetrics
+    public interface ICommentMetrics :IBaseMetrics
     {
-        Dictionary<string,double> HMetrics { get; set; }
+        Dictionary<string,double> CMetrics { get; set; }
         
     }
 }

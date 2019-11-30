@@ -43,9 +43,11 @@ namespace Diit.CodeMetrics
             services.AddSingleton<IFileProjectWorker, FileProjectWorker>();
             services.AddSingleton<IMetricsCreator<IHalstedMetrics>, HalstedMetricsCreator>();
             services.AddSingleton<IMetricsCreator<IMcCeibMetrics>, McCeibMetricsCreator>();
+            services.AddSingleton<IMetricsCreator<ICommentMetrics>, CommentMetricsCreator>();
             services.AddSingleton<IMetricsCreator<IMetrics>, MetricsCreator>();
             services.AddSingleton<ILexicalAnalyzer<IMcCeibMetrics>, SharpSimpleLexicalAnalyzer2>();
             services.AddSingleton<ILexicalAnalyzer<IHalstedMetrics>, SHarpLexicalAnalyzer>();
+            services.AddSingleton<ILexicalAnalyzer<ICommentMetrics>, SharpCommentAnalyzer>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSwaggerGen(c =>

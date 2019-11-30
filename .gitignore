@@ -1,5 +1,5 @@
-﻿.vs
+﻿Diit.CodeMetrics\wwwroot\lib\*
+.vs
 .vscode
 bin
 obj
-wwwroot/lib/*

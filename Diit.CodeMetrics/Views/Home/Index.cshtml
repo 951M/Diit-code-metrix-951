@@ -209,7 +209,10 @@
                         processData: send_type === 'project' ? false : true,
                         success: function (response) {
                             metrics = response.metrics
-                            let info = `Цикломатическое цисло:${metrics.ComplexityNumber}\n` + JSON.stringify(metrics.HMetrics).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n') + '\n\nМЕТРИКА УРОВНЯ КОММЕНТИРОВАННОСТИ ПРОГРАММ\n' + JSON.stringify(metrics.CMetrics).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n');
+                            let info = `Цикломатическое цисло:${metrics.ComplexityNumber}\n`
+                                + JSON.stringify(metrics.HMetrics).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n')
+                                + JSON.stringify(metrics.GMetrics).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n')
+                                + '\n\nМЕТРИКА УРОВНЯ КОММЕНТИРОВАННОСТИ ПРОГРАММ\n' + JSON.stringify(metrics.CMetrics).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n');
                             $("#consolearea").text(info)
                             $("#graph-select").empty()
                             for (let name of Object.keys(metrics.GraphEntities))

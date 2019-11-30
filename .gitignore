@@ -1,4 +1,4 @@
-﻿Diit.CodeMetrics\wwwroot\lib\*
+﻿**/wwwroot/lib
 .vs
 .vscode
 bin

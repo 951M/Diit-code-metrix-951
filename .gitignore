@@ -1,4 +1,6 @@
-﻿**/wwwroot/lib
+﻿**/wwwroot/lib/codemirror
+**/wwwroot/lib/jquery
+**/wwwroot/lib/sigma.js
 .vs
 .vscode
 bin

@@ -9,11 +9,56 @@ using Microsoft.AspNetCore.Hosting;
 
 namespace Diit.CodeMetrics.Services.Analyzer
 {
-    public class SHarpLexicalAnalyzer : ILexicalAnalyzer<IHalstedMetrics>
+    public class SharpCommentAnalyzer : ILexicalAnalyzer<ICommentMetrics>
     {
         private readonly IHostingEnvironment _inv;
 
-        public SHarpLexicalAnalyzer(IHostingEnvironment inv)
+        int deliter = 1;
+
+        static string[] s_operators = {
+                                "-"
+                                ,"+"
+                                ,"*"
+                                ,"/"
+                                ,"%"
+                                ,"--"
+                                ,"++"
+                                ,"+="
+                                ,"-="
+                                ,"*="
+                                ,"/="
+                                ,"%="
+                                ,">"
+                                ,">="
+                                ,"<"
+                                ,"<="
+                                ,"=="
+                                ,"="
+                                ,"!="
+                                ,"&&"
+                                ,"!"
+                                ,"&"
+                                ,"|"
+                                ,"^"
+                                ,"~"
+                                ,">>"
+                                ,"<<"
+                                ,"?"
+                                ,","
+                                ,"."
+                                ,"if"
+                                ,"else"
+                                ,"while"
+                                ,"for"
+                                ,"foreach"
+                                ,"break"
+                                ,"continue"
+                                ,"switch"
+                                ,"case"
+                                ,"return"
+};
+
+        public SharpCommentAnalyzer(IHostingEnvironment inv)
         {
 
             types.Add("bool");
@@ -44,6 +89,12 @@ namespace Diit.CodeMetrics.Services.Analyzer
         ArrayList numberOperators = new ArrayList();
         ArrayList uniqueOperands = new ArrayList();
         ArrayList numberOperands = new ArrayList();
+        int commentOperatorAllNumber = 0;
+        int commentCounter = 0;
+        List<int> commentBlockCounter = new List<int>();
+        List<int> operatorsBlockCounter = new List<int>();
+        int linesNumber = 0;
+
         ArrayList types = new ArrayList();
         public int[,] variables = new int[1, 2];
         int lengthString;
@@ -154,6 +205,109 @@ namespace Diit.CodeMetrics.Services.Analyzer
         }
         //--------------------------------------------------------------------------------------
 
+        private void AnalysisComments(string source)
+        {
+            commentBlockCounter.Clear();
+            operatorsBlockCounter.Clear();
+            commentCounter = 0;
+            var lines = source.Split('\n');
+            linesNumber = lines.Length;
+            bool isComment = false;
+
+            int temp_line_counter = 0;
+            int temp_commentCounter = 0;
+
+            bool isprime = true;
+            for (int i = 2; i < linesNumber; i++)
+            {
+                if (linesNumber % i == 0)
+                {
+                    isprime = false;
+                    deliter = i;
+                    if (i >= 10)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            if (isprime)
+            { 
+                deliter = linesNumber; 
+            }
+
+            foreach (var line in lines)
+            {
+                temp_line_counter++;
+                for (int i = 0; i < line.Length - 1; ++i)
+                {
+                    if (isComment)
+                    {
+                        if (line[i] == '*' && line[i + 1] == '/')
+                        {
+                            isComment = false;
+                        }
+                    }
+                    else
+                    {
+                        if (line[i] == '/' && line[i + 1] == '/')
+                        {
+                            commentCounter++;
+                            temp_commentCounter++;
+                            break;
+                        }
+
+                        if (line[i] == '/' && line[i + 1] == '*')
+                        {
+                            commentCounter++;
+                            temp_commentCounter++;
+                            isComment = true;
+                        }
+                    }
+                }
+                if (temp_line_counter == deliter)
+                {
+                    commentBlockCounter.Add(temp_commentCounter);
+                    temp_line_counter = 0;
+                    temp_commentCounter = 0;
+                }
+            }
+
+
+            //commentCounter = 0;
+            //var lines = source.Split('\n');
+            //linesNumber = lines.Length - 1;
+            //bool isComment = false;
+            //int blockNum = ;
+            //foreach(var line in lines)
+            //{
+            //    for (int i = 0; i < line.Length - 1; ++i)
+            //    {
+            //        if(isComment)
+            //        {
+            //            if (line[i] == '*' && line[i + 1] == '/')
+            //            {
+            //                isComment = false;
+            //            }
+            //        }
+            //        else
+            //        {
+            //            if(line[i] == '/' && line[i+1] == '/')
+            //            {
+            //                commentCounter++;
+            //                break;
+            //            }
+
+            //            if(line[i] == '/' && line[i + 1] == '*')
+            //            {
+            //                commentCounter++;
+            //                isComment = true;
+            //            }
+            //        }
+            //    }
+            //}
+        }
+
         private void AnalysisWordsAndChars(string source)
         {
             operatorsCounter = 0;
@@ -164,8 +318,57 @@ namespace Diit.CodeMetrics.Services.Analyzer
             int indexChars = 1;
             int indexWords = 1;
             bool flag;
-            for (int i = 0; i < readText.Length; i++) //проходим по всем символам одной строки
+            bool isComment = false;
+            int lineCounter = 1;
+            int lastSlashNIndex = 0;
+            int tempOperatorNumber = 0;
+            for (int i = 0; i < readText.Length; i++) // проходим по всем символам одной строки
             {
+                if (readText[i] == '\n' && i > lastSlashNIndex)
+                {
+                    lastSlashNIndex = i;
+                    lineCounter++;
+                }
+
+                if (lineCounter == deliter + 1)
+                {
+                    operatorsBlockCounter.Add(tempOperatorNumber);
+                    tempOperatorNumber = 0;
+                    lineCounter = 1;
+                }
+
+                if (isComment)
+                {
+                    if (i != readText.Length - 1)
+                    if (readText[i] == '*' && readText[i + 1] == '/')
+                    {
+                        isComment = false;
+                    }
+
+                    continue;
+                }
+                else
+                {
+                    if (i != readText.Length - 1)
+                    if (readText[i] == '/' && readText[i + 1] == '/')
+                    {
+                        commentCounter++;
+                            for (; i < readText.Length; i++)
+                                if (readText[i] == '\n')
+                                {
+                                    i--;
+                                    break;
+                                }
+                    }
+
+                    if (i != readText.Length - 1)
+                    if (readText[i] == '/' && readText[i + 1] == '*')
+                    {
+                        commentCounter++;
+                        isComment = true;
+                    }
+                }
+
                 flag = true;
                 if (indexChars == 1)
                 {
@@ -179,6 +382,11 @@ namespace Diit.CodeMetrics.Services.Analyzer
                             {
                                 CompareUniqueOperators(word._index);
                                 operatorsCounter++;
+                            }
+                            if (s_operators.Contains(temp) && i != 0 && readText[i - 1] != '*' && readText[i - 1] != '/')
+                            {
+                                tempOperatorNumber++;
+                                commentOperatorAllNumber++;
                             }
                             temp = "";
                             indexWords = 1;
@@ -199,6 +407,11 @@ namespace Diit.CodeMetrics.Services.Analyzer
                         {
                             flag = true;
                             resultText += temp;
+                            if (s_operators.Contains(temp) && i != 0 && readText[i - 1] != '*' && readText[i - 1] != '/')
+                            {
+                                tempOperatorNumber++;
+                                commentOperatorAllNumber++;
+                            }
                             temp = "";
                             indexWords = 1;
                             break;
@@ -213,6 +426,11 @@ namespace Diit.CodeMetrics.Services.Analyzer
                         {
                             flag = false;
                             resultText += "(2/" + @char._index + ")";
+                            if (s_operators.Contains(temp) && i != 0 && readText[i - 1] != '*' && readText[i - 1] != '/')
+                            {
+                                tempOperatorNumber++;
+                                commentOperatorAllNumber++;
+                            }
                             temp = "";
                             indexChars = 1;
                             i--;
@@ -257,6 +475,8 @@ namespace Diit.CodeMetrics.Services.Analyzer
                     resultText += readText[i];
                 }
             }
+
+            operatorsBlockCounter.Add(tempOperatorNumber);
         }
 
 
@@ -404,6 +624,8 @@ namespace Diit.CodeMetrics.Services.Analyzer
 
         public IEnumerable<AnalyzerItem> AnalyzeSource(string source)
         {
+            commentOperatorAllNumber = 0;
+            AnalysisComments(source);
             AnalysisWordsAndChars(source);
             AnalysisVariables(source);
             AnalysisLiteral();
@@ -413,10 +635,14 @@ namespace Diit.CodeMetrics.Services.Analyzer
             {
                 UniqueOperators = uniqueOperators.Count,
                 UniqueOperands = uniqueOperands.Count,
-                OperatorsCounter = operatorsCounter,
+                OperatorsCounter = commentOperatorAllNumber,
                 OperandsCounter = operandsCounter,
                 TeoryOperators = numberOperators.Count != 0 ? Convert.ToDouble(numberOperators[numberOperators.Count - 1]) : 0,
-                TeoryOperands = numberOperators.Count != 0 ? Convert.ToDouble(numberOperands[numberOperands.Count - 1]) : 0
+                TeoryOperands = numberOperators.Count != 0 ? Convert.ToDouble(numberOperands[numberOperands.Count - 1]) : 0,
+                CommentCounter = commentCounter,
+                CommentBlockCounter = commentBlockCounter,
+                OperatorsBlockCounter = operatorsBlockCounter,
+                LineNumber = linesNumber
             };
             List<AnalyzerItem> IEN = new List<AnalyzerItem>();
             IEN.Add(item);

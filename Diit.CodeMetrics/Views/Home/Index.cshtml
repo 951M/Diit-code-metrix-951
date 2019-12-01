@@ -55,6 +55,9 @@
                         <button class="btn" type="button" id="saveButton" aria-expanded="false">
                             Save
                         </button>
+                        <button class="btn" type="button" id="compareButton" onclick="location.href='@Url.Action("Index", "Compare")'">
+                            Compare
+                        </button>
                         <div id="graph-select" class="dropdown-menu" aria-labelledby="dropdownMenuButton"></div>
                     </div>
                     <canvas id="graph_view" width="800" height="600"></canvas>
@@ -237,6 +240,13 @@
                         error: err => console.log(err)
                     });
                 });
+
+                //$('#compareButton').click(event => {
+                //    $.ajax({
+                //        url: '/Compare/Index',
+                //        type: "GET",
+                //    });
+                //});
 
                 $("#graph-select").click(event => draw_graph(metrics.GraphEntities[event.target.innerHTML]))
 

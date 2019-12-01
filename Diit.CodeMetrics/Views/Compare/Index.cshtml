@@ -1,0 +1,70 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Compare</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="~/lib/jquery/jquery.min.js"></script>
+        <link rel="stylesheet" href="~/lib/codemirror/codemirror.min.css">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="~/css/main.css">
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    </head>
+
+    @model List<string>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div id="leftElement" class="col-sm-6">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                        Select File
+                    </button>
+                    <div class="dropdown-menu project-select" aria-labelledby="dropdownMenuButton1">
+                        @foreach (var name in Model)
+                        {
+                            <a class="dropdown-item" href="#" data-id="1">@name</a>
+                        }
+                    </div>
+                    <textarea id="consolearea1" readonly>Information about your code</textarea>
+                </div>
+                <div id="rightElement" class="col-sm-6">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                        Select File
+                    </button>
+                    <div class="dropdown-menu project-select" aria-labelledby="dropdownMenuButton2">
+                        @foreach (var name in Model)
+                        {
+                            <a class="dropdown-item" href="#" data-id="2">@name</a>
+                        }
+                    </div>
+                    <textarea id="consolearea2" readonly>Information about your code</textarea>
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>
+
+    <script>
+        $(document).ready(function () {
+            $('.dropdown-item').click(function () {
+                var number = $(this).attr('data-id');
+                $.ajax({
+                        url: '/Compare/GetProject',
+                        type: "POST",
+                        data: JSON.stringify($(this).text()),
+                        contentType: 'application/json',
+                        success: function (result) {
+                            let metrics = result.project.metrics;
+                            let info = "Название: " + result.project.name + "\n";
+                            info += "Код: \n" + result.project.code + "\n";
+                            info += "Метрики: \n" + "Цикломатическое число: " + metrics.complexityNumber + "\n";
+                            info += JSON.stringify(metrics.hMetrics).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n');
+                            $('#consolearea' + number).text(info);
+                        },
+                        error: err => console.log(err)
+                    });
+            });
+        });
+    </script>

@@ -35,11 +35,55 @@ namespace Diit.CodeMetrics.Services
             }
             project.Name = name;
 
-            string output = JsonConvert.SerializeObject(project);
-            using (StreamWriter sw = new StreamWriter(_pathToDB, true, Encoding.Default))
+            List<ProjectEntity> list = new List<ProjectEntity>();
+            if (File.Exists(_pathToDB))
+            {
+                using (StreamReader sr = new StreamReader(_pathToDB))
+                {
+                    string jsonObj = sr.ReadToEnd();
+                    list = JsonConvert.DeserializeObject<List<ProjectEntity>>(jsonObj);
+                }
+            }
+
+            list.Add(project);
+
+            string output = JsonConvert.SerializeObject(list);
+            using (StreamWriter sw = new StreamWriter(_pathToDB, false, Encoding.Default))
             {
                 sw.Write(output);
             }
+        }
+
+        public List<string> GetAllNamesFromDB()
+        {
+            List<ProjectEntity> list = new List<ProjectEntity>();
+            using (StreamReader sr = new StreamReader(_pathToDB))
+            {
+                string jsonObj = sr.ReadToEnd();
+                list = JsonConvert.DeserializeObject<List<ProjectEntity>>(jsonObj);
+            }
+            List<string> names = new List<string>();
+            foreach(var obj in list)
+            {
+                names.Add(obj.Name);
+            }
+            return names;
+        }
+
+        public ProjectEntity GetByNameFromDB(string name)
+        {
+            ProjectEntity project;
+
+            List<ProjectEntity> list = new List<ProjectEntity>();
+            using (StreamReader sr = new StreamReader(_pathToDB))
+            {
+                string jsonObj = sr.ReadToEnd();
+                list = JsonConvert.DeserializeObject<List<ProjectEntity>>(jsonObj);
+            }
+
+            project = list.Where(item => item.Name == name).First();
+
+            return project;
         }
     }
 }

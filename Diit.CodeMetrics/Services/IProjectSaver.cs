@@ -15,5 +15,9 @@ namespace Diit.CodeMetrics.Services
         void SaveToTemp(T metrics, Module source);
 
         void SaveLastByName(string name);
+
+        List<string> GetAllNamesFromDB();
+
+        ProjectEntity GetByNameFromDB(string name);
     }
 }

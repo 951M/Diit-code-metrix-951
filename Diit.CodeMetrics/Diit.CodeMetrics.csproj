@@ -16,10 +16,12 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\" />
+    <Folder Include="App_Data\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="1.0.163" />
     <PackageReference Include="SharpZipLib">
       <Version>1.0.0</Version>

@@ -51,11 +51,16 @@
                                 aria-expanded="false">
                             Select Graph
                         </button>
+                        <input id="projectName">
+                        <button class="btn" type="button" id="saveButton" aria-expanded="false">
+                            Save
+                        </button>
                         <div id="graph-select" class="dropdown-menu" aria-labelledby="dropdownMenuButton"></div>
                     </div>
                     <canvas id="graph_view" width="800" height="600"></canvas>
                     <textarea id="consolearea" readonly>Information about your code</textarea>
                 </div>
+                
             </div>
         </div>
         <script>
@@ -214,6 +219,20 @@
                             $("#graph-select").empty()
                             for (let name of Object.keys(metrics.GraphEntities))
                                 $("#graph-select").append(`<a class="dropdown-item" href="#">${name}</a>`)
+                        },
+                        error: err => console.log(err)
+                    });
+                });
+
+                $('#saveButton').click(event => {
+                    let name = $("#projectName").val();
+                    $.ajax({
+                        url: '/Save/SaveProject',
+                        type: "POST",
+                        data: JSON.stringify(name),
+                        contentType: 'application/json',
+                        success: function () {
+                            alert("Project " + name + " saved!");
                         },
                         error: err => console.log(err)
                     });

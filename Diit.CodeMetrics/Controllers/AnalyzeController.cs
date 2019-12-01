@@ -20,12 +20,15 @@ namespace Diit.CodeMetrics.Controllers
         private readonly ISourceLoader<StringSourceViewModel> _stringSourceLoader;
         private readonly ISourceLoader<FileSourceViewModel> _fileSourceLoader;
         private readonly IMetricsCreator<IMetrics> _metricsCreator;
+        private readonly IProjectSaver<IMetrics> _projectSaver;
 
-        public AnalyzeController(ISourceLoader<StringSourceViewModel> stringSourceLoader, ISourceLoader<FileSourceViewModel> fileSourceLoader, IMetricsCreator<IMetrics> metricsCreator)
+        public AnalyzeController(ISourceLoader<StringSourceViewModel> stringSourceLoader, ISourceLoader<FileSourceViewModel> fileSourceLoader,
+            IMetricsCreator<IMetrics> metricsCreator, IProjectSaver<IMetrics> projectSaver)
         {
             _stringSourceLoader = stringSourceLoader;
             _fileSourceLoader = fileSourceLoader;
             _metricsCreator = metricsCreator;
+            _projectSaver = projectSaver;
         }
 
 
@@ -41,6 +44,7 @@ namespace Diit.CodeMetrics.Controllers
             {
                 var memorySource = await _stringSourceLoader.LoadData(stringSourceViewModel);
                 var metrics = _metricsCreator.CreateMetrics(memorySource);
+                _projectSaver.SaveToTemp(metrics, memorySource[0]);
                 return new JsonResult(new { success = true, metrics},new JsonSerializerSettings()
                 {
                     Converters = new List<JsonConverter>()
@@ -62,12 +66,13 @@ namespace Diit.CodeMetrics.Controllers
         /// <param name="fileSourceViewModel">Input source</param>
         /// <returns>Metrics and graph entities in JSON</returns>
         [HttpPost]
-        public  async Task<IActionResult> LoadFileAndAnalyze([FromForm] FileSourceViewModel fileSourceViewModel)
+        public async Task<IActionResult> LoadFileAndAnalyze([FromForm] FileSourceViewModel fileSourceViewModel)
         {
             try
             {
                 var memorySource = await _fileSourceLoader.LoadData(fileSourceViewModel);
                 var metrics = _metricsCreator.CreateMetrics(memorySource);
+                _projectSaver.SaveToTemp(metrics, memorySource[0]);
                 return new JsonResult(new { success = true, metrics},new JsonSerializerSettings()
                 {
                     Converters = new List<JsonConverter>()

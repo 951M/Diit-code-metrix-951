@@ -3,18 +3,18 @@
   "defaultProvider": "cdnjs",
   "libraries": [
     {
-      "provider": "filesystem",
-      "library": "Libs/sigma.js/",
+      "provider": "cdnjs",
+      "library": "sigma.js@1.2.1",
       "destination": "wwwroot/lib/sigma.js/"
     },
     {
-      "provider": "filesystem",
-      "library": "Libs/jquery/",
+      "provider": "cdnjs",
+      "library": "jquery@3.3.1",
       "destination": "wwwroot/lib/jquery/"
     },
     {
-      "provider": "filesystem",
-      "library": "Libs/bootstrap/",
+      "provider": "unpkg",
+      "library": "bootstrap@4.1.3",
       "destination": "wwwroot/lib/bootstrap/",
       "files": [
         "dist/css/bootstrap-grid.min.css",
@@ -30,8 +30,8 @@
       ]
     },
     {
-      "provider": "filesystem",
-      "library": "Libs/codemirror/",
+      "provider": "cdnjs",
+      "library": "codemirror@5.41.0",
       "destination": "wwwroot/lib/codemirror/"
     }
   ]

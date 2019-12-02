@@ -4,6 +4,8 @@
         <title>lr1</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="~/lib/jquery/jquery.min.js"></script>
+        <script src="~/lib/jquery/jquery-ui.js"></script>
+        <link rel="stylesheet" href="~/lib/jquery/jquery-ui.css">
         <link rel="stylesheet" href="~/lib/codemirror/codemirror.min.css">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="~/css/main.css">
@@ -58,9 +60,21 @@
                 </div>
             </div>
         </div>
+        <div></div>
         <script>
-            $(function () {
+            $.extend({ alert: function (message, title) {
+  $("<div></div>").dialog( {
+    buttons: { "Ok": function () { $(this).dialog("close"); } },
+    close: function (event, ui) { $(this).remove(); },
+    resizable: false,
+    title: title,
+    modal: true
+  }).text(message);
+}
+});
 
+            $(function () {
+                        
                 var Renderer = function (canvas) {
                     var canvas = $(canvas).get(0);
                     var ctx = canvas.getContext("2d");
@@ -92,7 +106,7 @@
 
                             particleSystem.eachNode( //теперь каждую вершину
                                 function (node, pt) {  //получаем вершину и точку где она
-                                    
+
                                     var w = 10;   //ширина квадрата
                                     ctx.fillStyle = node.data.color; //с его цветом понятно
                                     ctx.fillRect(pt.x - w / 2, pt.y - w / 2, w, w); //рисуем
@@ -186,16 +200,26 @@
                 $('#send').click(event => {
                     var send_type = $('#filereader')[0].files.length ? 'project' : 'text';
                     var request_data;
-
+                    var file_counter = 0;
                     if (send_type == 'project') {
                         request_data = new FormData();
 
                         for (var file of $('#filereader')[0].files) {
+                            if (file.name.endsWith(".cs") != true) {
+                                $.alert("File " + file.name + " can't be analyzed. Сhosen file has incorrect format. Supported file format: *.cs.","Message");
+                                continue;
+                            }
+                            file_counter += 1;
                             request_data.append('Files', file);
+                        }
+                        if (file_counter == 0) {
+                            $.alert("Error! There is no files to process.","Message");
+                            return;
                         }
                         window.a = request_data;
                         request_data.append("FileType", "cs");
                     } else {
+                        if (myCodeMirror.getValue() == "") { $.alert("Error! The text filed is empty. Please, enter some code to process.","Message"); return; }
                         request_data = {
                             "source": myCodeMirror.getValue(),
                         };
@@ -209,7 +233,7 @@
                         processData: send_type === 'project' ? false : true,
                         success: function (response) {
                             metrics = response.metrics
-                            let info = `Цикломатическое цисло:${metrics.ComplexityNumber}\n` + JSON.stringify(metrics.HMetrics).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n');
+                            let info = `Цикломатическое цисло:${metrics.ComplexityNumber}\n` + JSON.stringify(metrics.HMetrics).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n') + '\n\nМЕТРИКА УРОВНЯ КОММЕНТИРОВАННОСТИ ПРОГРАММ\n' + JSON.stringify(metrics.CMetrics).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n');
                             $("#consolearea").text(info)
                             $("#graph-select").empty()
                             for (let name of Object.keys(metrics.GraphEntities))
@@ -232,22 +256,22 @@
 
                         var colorNode = '';
                         var labelNode = '';
-                    
+
                         switch (item.Type) {
-                            case "Empty": colorNode = '#666'; labelNode = ''; 
+                            case "Empty": colorNode = '#666'; labelNode = '';
                                 break;
                             case "If": colorNode = '#0F0'; labelNode = ''; break;
                             case "Else": colorNode = '#0F0'; labelNode = ''; break;
-                            case "Cycle": colorNode = '#FFC107'; labelNode = item.Comment; 
+                            case "Cycle": colorNode = '#FFC107'; labelNode = item.Comment;
                                 break;
                             case "StartProcedure": colorNode = '#F00'; labelNode = item.Comment;
                                 break;
-                            case "EndProcedure": colorNode = '#000'; labelNode = 'return'; 
+                            case "EndProcedure": colorNode = '#000'; labelNode = 'return';
                                 break;
                         }
 
-                        
-                    
+
+
 
                         let curNode = {
                             //p: item.Number,
@@ -258,15 +282,15 @@
                         }
 
                         console.log(curNode)
-                   
+
                         for (let con of item.ConnectedTo)
                             g.edges.push({
                                 //id: `n${item.Number}n${con}`,
-                                src: 'n' + item.Number ,
-                                dest: 'n' +  con 
+                                src: 'n' + item.Number,
+                                dest: 'n' + con
                                 //color: '#ccc'
                             })
-                    
+
 
                         g.nodes.push(curNode)
 
@@ -285,6 +309,8 @@
                         sys.addEdge(sys.getNode(edge.src), sys.getNode(edge.dest)); //добавляем грань
                     });
                 }
+
+
 
                 function findNode(g, v) {
 

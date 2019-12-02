@@ -26,7 +26,11 @@
                             <a class="dropdown-item" href="#" data-id="1">@name</a>
                         }
                     </div>
-                    <textarea id="consolearea1" readonly>Information about your code</textarea>
+                    <details>
+                        <textarea id="details1" style="float:left; width:calc(110% - 100px); height:400px" readonly>
+                        </textarea>
+                    </details>
+                    <textarea id="consolearea1" style="float:left; width:calc(110% - 100px); height:700px" readonly>Information about your code</textarea>
                 </div>
                 <div id="rightElement" class="col-sm-6">
                     <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true"
@@ -39,7 +43,11 @@
                             <a class="dropdown-item" href="#" data-id="2">@name</a>
                         }
                     </div>
-                    <textarea id="consolearea2" readonly>Information about your code</textarea>
+                    <details>
+                        <textarea id="details2" style="float:left; width:calc(110% - 100px); height:400px" readonly>
+                        </textarea>
+                    </details>
+                    <textarea id="consolearea2" style="float:left; width:calc(110% - 100px); height:700px" readonly>Information about your code</textarea>
                 </div>
             </div>
         </div>
@@ -57,11 +65,12 @@
                         contentType: 'application/json',
                         success: function (result) {
                             let metrics = result.project.metrics;
-                            let info = "Название: " + result.project.name + "\n";
-                            info += "Код: \n" + result.project.code + "\n";
-                            info += "Метрики: \n" + "Цикломатическое число: " + metrics.complexityNumber + "\n";
+                            let code = "Название: " + result.project.name + "\n";
+                            code += "Код: \n" + result.project.code + "\n";
+                            let info = "Метрики: \n" + "Цикломатическое число: " + metrics.complexityNumber + "\n";
                             info += JSON.stringify(metrics.hMetrics).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n');
                             $('#consolearea' + number).text(info);
+                            $('#details' + number).text(code);
                         },
                         error: err => console.log(err)
                     });

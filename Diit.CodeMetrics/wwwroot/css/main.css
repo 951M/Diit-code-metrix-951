@@ -117,6 +117,28 @@ body {
   resize: none;
 }
 
+#consolearea1 {
+    /*height: calc(25vh - 10px);
+    width: calc(50vw - 0px);*/
+    height: 1000px;
+    width: 1000px;
+    /* background: #111; */
+    color: #383838;
+    font-family: consolas;
+    resize: none;
+}
+
+#consolearea2 {
+    /*height: calc(25vh - 10px);
+    width: calc(50vw - 0px);*/
+    height: 45%;
+    width: 45%;
+    /* background: #111; */
+    color: #383838;
+    font-family: consolas;
+    resize: none;
+}
+
 .CodeMirror {
   height: 100%;
 }

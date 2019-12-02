@@ -11,9 +11,9 @@ namespace Diit.CodeMetrics.Data
     {
         Empty,
         If,
-        Else,
         Cycle,
         StartProcedure,
-        EndProcedure
+        EndProcedure,
+        Nested,
     }
 }

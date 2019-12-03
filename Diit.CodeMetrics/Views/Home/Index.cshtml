@@ -234,16 +234,17 @@
                         var labelNode = '';
                     
                         switch (item.Type) {
-                            case "Empty": colorNode = '#666'; labelNode = ''; 
+                            case "Empty": colorNode = '#666'; labelNode = item.Comment; 
                                 break;
-                            case "If": colorNode = '#0F0'; labelNode = ''; break;
-                            case "Else": colorNode = '#0F0'; labelNode = ''; break;
-                            case "Cycle": colorNode = '#FFC107'; labelNode = item.Comment; 
+                            case "If": colorNode = '#0F0'; labelNode = "if";
+								break;
+                            case "Cycle": colorNode = '#FFC107'; labelNode = "preConditionCycle"; 
                                 break;
                             case "StartProcedure": colorNode = '#F00'; labelNode = item.Comment;
                                 break;
                             case "EndProcedure": colorNode = '#000'; labelNode = 'return'; 
                                 break;
+                            case "Nested": colorNode = '#00FFFF'; labelNode = item.Comment; 
                         }
 
                         

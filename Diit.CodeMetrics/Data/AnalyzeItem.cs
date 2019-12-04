@@ -25,6 +25,10 @@ namespace Diit.CodeMetrics.Data
         public List<int> CommentBlockCounter { get; set; } = new List<int>();
 
         public List<int> OperatorsBlockCounter { get; set; } = new List<int>();
+
+        public double A_coef;
+
+        public bool Isprime;
         // Gilb
         public int ConditionOperatorsCount { get; set; }
         public int AllOperatorsCount { get; set; }

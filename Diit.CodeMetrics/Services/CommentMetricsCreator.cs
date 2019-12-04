@@ -31,12 +31,12 @@ namespace Diit.CodeMetrics.Services
             }
             var analized = _lexicalAnalyzer.AnalyzeSource(allsource).FirstOrDefault();
             metrics.CMetrics = Calculate(analized.CommentCounter, analized.OperatorsCounter, analized.LineNumber,
-                analized.OperatorsBlockCounter, analized.CommentBlockCounter);
+                analized.OperatorsBlockCounter, analized.CommentBlockCounter, analized.Isprime, analized.A_coef);
             return metrics;
         }
 
         private Dictionary<string, double> Calculate(double Ncomments, double Moperators, double Mlines,
-            List<int> operatorsBlockCounter, List<int> commentBlockCounter)
+            List<int> operatorsBlockCounter, List<int> commentBlockCounter, bool isprime, double a_coef)
         {
             Dictionary<string, double> metriks = new Dictionary<string, double>();
             try
@@ -58,21 +58,60 @@ namespace Diit.CodeMetrics.Services
                         if (operatorsBlockCounter[i] == 0)
                             operatorsBlockCounter[i] = 1;
 
-                        f4 += Math.Sign(((double)commentBlockCounter[i] / ((double)operatorsBlockCounter[i]))-0.1);
+                        if (!isprime)
+                            f4 += Math.Sign(((double)commentBlockCounter[i] / ((double)operatorsBlockCounter[i])) - 0.1 - a_coef);
+                        else
+                        {
+                            if(i == commentBlockCounter.Count - 1)
+                                f4 += Math.Sign(((double)commentBlockCounter[i] / ((double)operatorsBlockCounter[i])) - 0.1 - a_coef);
+                            else
+                                f4 += Math.Sign(((double)commentBlockCounter[i] / ((double)operatorsBlockCounter[i])) - 0.1);
+                        }
                     }
                 }
 
                 for(int i = 0; i < commentBlockCounter.Count; ++i)
                 {
-                    f3 += Math.Sign(((double)commentBlockCounter[i] / ((double)Mlines / (double)commentBlockCounter.Count))-0.1);
+                    if (!isprime)
+                        f3 += Math.Sign(((double)commentBlockCounter[i] / ((double)Mlines / (double)commentBlockCounter.Count)) - 0.1 - a_coef);
+                    else
+                    {
+                        if (i == commentBlockCounter.Count - 1)
+                            f3 += Math.Sign(((double)commentBlockCounter[i] / ((double)Mlines / (double)commentBlockCounter.Count)) - 0.1 - a_coef);
+                        else
+                            f3 += Math.Sign(((double)commentBlockCounter[i] / ((double)Mlines / (double)commentBlockCounter.Count)) - 0.1);
+                    }
                 }
+
+
 
                 metriks.TryAdd("Колличество комментариев", Ncomments);
                 metriks.TryAdd("Колличество блоков", commentBlockCounter.Count);
-                metriks.TryAdd("Комментированность общая через строки", f1);
-                metriks.TryAdd("Комментированность общая через операторы", f2);
-                metriks.TryAdd("Комментированность блочная через строки", f3);
-                metriks.TryAdd("Комментированность блочная через операторы", f4);
+
+                string analysLines = "Недостаточно";
+
+                if (f1 > 0.1f)
+                    analysLines = "Достаточно";
+
+                metriks.TryAdd("Комментированность общая через строки(" + analysLines + ")", Math.Round(f1, 4));
+
+                analysLines = "Недостаточно";
+                if (f2 > 0.1f)
+                    analysLines = "Достаточно";
+
+                metriks.TryAdd("Комментированность общая через операторы(" + analysLines + ")", Math.Round(f2, 4));
+
+                string analysBlock = "Недостаточно";
+                if (f3 == commentBlockCounter.Count)
+                    analysBlock = "Достаточно";
+
+                metriks.TryAdd("Комментированность блочная через строки(" + analysBlock + ")", f3);
+
+                analysBlock = "Недостаточно";
+                if (f4 == commentBlockCounter.Count)
+                    analysBlock = "Достаточно";
+
+                metriks.TryAdd("Комментированность блочная через операторы(" + analysBlock + ")", f4);
 
                 return metriks;
             }

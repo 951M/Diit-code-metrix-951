@@ -205,7 +205,70 @@ namespace Diit.CodeMetrics.Services.Analyzer
         }
         //--------------------------------------------------------------------------------------
 
-        private void AnalysisComments(string source)
+        private string ParseCode(string source)
+        {
+            int i = 0;
+            bool multi_comment = false;
+            bool line_comment = false;
+
+            source.Replace(" ", "");
+            source.Replace("\t", "");
+
+            while(i < source.Length)
+            {
+                if (i + 1 < source.Length)
+                {
+                    if (source[i].ToString() + source[i + 1].ToString() == "/*" && !line_comment)
+                    {
+                        multi_comment = true;
+                    }
+                    else if (source[i].ToString() + source[i + 1].ToString() == "*/" && multi_comment)
+                    {
+                        multi_comment = false;
+                    }
+                    else if (source[i].ToString() + source[i + 1].ToString() == "//" && !multi_comment)
+                    {
+                        line_comment = true;
+                    }
+                    else if (source[i].ToString() == "\n" && line_comment)
+                    {
+                        line_comment = false;
+                    }
+                }
+                if (!line_comment && !multi_comment)
+                {
+                    if (i + 1 < source.Length &&
+                        (source[i].ToString() + source[i + 1].ToString() == "&&"
+                        || source[i].ToString() + source[i + 1].ToString() == "||"))
+                    {
+                        source = source.Substring(0, i + 2) + "\n" + source.Substring(i + 2);
+                        i += 3;
+                    }
+                    else if (source[i].ToString() == "{" || source[i].ToString() == "," || source[i].ToString() == "}" || source[i].ToString() == ";"
+                    || source[i].ToString() == "^" || source[i].ToString() == "&" || source[i].ToString() == "|")
+                    {
+                        source = source.Substring(0, i + 1) + "\n" + source.Substring(i + 1);
+                        i += 2;
+                    }
+                }
+                i += 1;
+            }
+            i = 0;
+            while (i < source.Length)
+            {
+                if (i + 1 < source.Length)
+                    if (source[i].ToString() + source[i + 1].ToString() == "\n\n")
+                    {
+                        source = source.Substring(0, i) + source.Substring(i + 1);
+                        i -= 1;
+                    }
+                i += 1;
+            }
+
+            return source;
+        }
+        
+        private void AnalysisComments(string source, ref bool isprime, ref double a_coef)
         {
             commentBlockCounter.Clear();
             operatorsBlockCounter.Clear();
@@ -217,7 +280,7 @@ namespace Diit.CodeMetrics.Services.Analyzer
             int temp_line_counter = 0;
             int temp_commentCounter = 0;
 
-            bool isprime = true;
+            isprime = true;
             for (int i = 2; i < linesNumber; i++)
             {
                 if (linesNumber % i == 0)
@@ -235,6 +298,17 @@ namespace Diit.CodeMetrics.Services.Analyzer
             { 
                 deliter = linesNumber; 
             }
+
+            a_coef = 0f;
+
+            if (deliter == linesNumber)
+            {
+                // This is true when line number is prime number
+                a_coef = 1f / (deliter % 10) - 0.1f;
+                deliter = 10;
+            }
+            else
+                a_coef = 1f / (deliter) - 0.1f;
 
             foreach (var line in lines)
             {
@@ -272,40 +346,6 @@ namespace Diit.CodeMetrics.Services.Analyzer
                     temp_commentCounter = 0;
                 }
             }
-
-
-            //commentCounter = 0;
-            //var lines = source.Split('\n');
-            //linesNumber = lines.Length - 1;
-            //bool isComment = false;
-            //int blockNum = ;
-            //foreach(var line in lines)
-            //{
-            //    for (int i = 0; i < line.Length - 1; ++i)
-            //    {
-            //        if(isComment)
-            //        {
-            //            if (line[i] == '*' && line[i + 1] == '/')
-            //            {
-            //                isComment = false;
-            //            }
-            //        }
-            //        else
-            //        {
-            //            if(line[i] == '/' && line[i+1] == '/')
-            //            {
-            //                commentCounter++;
-            //                break;
-            //            }
-
-            //            if(line[i] == '/' && line[i + 1] == '*')
-            //            {
-            //                commentCounter++;
-            //                isComment = true;
-            //            }
-            //        }
-            //    }
-            //}
         }
 
         private void AnalysisWordsAndChars(string source)
@@ -359,9 +399,12 @@ namespace Diit.CodeMetrics.Services.Analyzer
                                     i--;
                                     break;
                                 }
+
+                            if (i >= readText.Length)
+                                break;
                     }
 
-                    if (i != readText.Length - 1)
+                    if (i < readText.Length)
                     if (readText[i] == '/' && readText[i + 1] == '*')
                     {
                         commentCounter++;
@@ -465,6 +508,9 @@ namespace Diit.CodeMetrics.Services.Analyzer
                         resultText += readText[i];
                         i++;
                     }
+
+                    if (i >= readText.Length)
+                        break;
                 }
                 if (readText[i].Equals(Convert.ToChar('\r')) || readText[i].Equals(Convert.ToChar('\t')) || readText[i].Equals(Convert.ToChar('\n')))
                 {
@@ -625,9 +671,12 @@ namespace Diit.CodeMetrics.Services.Analyzer
         public IEnumerable<AnalyzerItem> AnalyzeSource(string source)
         {
             commentOperatorAllNumber = 0;
-            AnalysisComments(source);
-            AnalysisWordsAndChars(source);
-            AnalysisVariables(source);
+            var goodsource = ParseCode(source);
+            bool isprime = false;
+            double a_coef = 0f;
+            AnalysisComments(goodsource, ref isprime, ref a_coef);
+            AnalysisWordsAndChars(goodsource);
+            AnalysisVariables(goodsource);
             AnalysisLiteral();
             numberOperators.Sort();
             numberOperands.Sort();
@@ -639,10 +688,12 @@ namespace Diit.CodeMetrics.Services.Analyzer
                 OperandsCounter = operandsCounter,
                 TeoryOperators = numberOperators.Count != 0 ? Convert.ToDouble(numberOperators[numberOperators.Count - 1]) : 0,
                 TeoryOperands = numberOperators.Count != 0 ? Convert.ToDouble(numberOperands[numberOperands.Count - 1]) : 0,
-                CommentCounter = commentCounter,
+                CommentCounter = commentCounter / 2,
                 CommentBlockCounter = commentBlockCounter,
                 OperatorsBlockCounter = operatorsBlockCounter,
-                LineNumber = linesNumber
+                LineNumber = linesNumber,
+                A_coef = a_coef,
+                Isprime = isprime
             };
             List<AnalyzerItem> IEN = new List<AnalyzerItem>();
             IEN.Add(item);

@@ -45,6 +45,7 @@ namespace Diit.CodeMetrics
             services.AddSingleton<IMetricsCreator<IMcCeibMetrics>, McCeibMetricsCreator>();
             services.AddSingleton<IMetricsCreator<IMetrics>, MetricsCreator>();
             services.AddSingleton<IProjectSaver<IMetrics>, ProjectSaver>();
+            services.AddSingleton<IHMetricsComparer, HMetricsComparer>();
             services.AddSingleton<ILexicalAnalyzer<IMcCeibMetrics>, SharpSimpleLexicalAnalyzer2>();
             services.AddSingleton<ILexicalAnalyzer<IHalstedMetrics>, SHarpLexicalAnalyzer>();
 

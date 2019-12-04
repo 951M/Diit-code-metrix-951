@@ -33,7 +33,7 @@
                     <textarea id="consolearea1" style="float:left; width:calc(110% - 100px); height:700px" readonly>Information about your code</textarea>
                 </div>
                 <div id="rightElement" class="col-sm-6">
-                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true"
+                    <button disabled class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
                         Select File
                     </button>
@@ -58,12 +58,15 @@
         $(document).ready(function () {
             $('.dropdown-item').click(function () {
                 var number = $(this).attr('data-id');
-                $.ajax({
+                let name = $(this).text();
+                if (number == 1) {
+                    $.ajax({
                         url: '/Compare/GetProject',
                         type: "POST",
-                        data: JSON.stringify($(this).text()),
+                        data: JSON.stringify(name),
                         contentType: 'application/json',
                         success: function (result) {
+
                             let metrics = result.project.metrics;
                             let code = "Название: " + result.project.name + "\n";
                             code += "Код: \n" + result.project.code + "\n";
@@ -71,9 +74,43 @@
                             info += JSON.stringify(metrics.hMetrics).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n');
                             $('#consolearea' + number).text(info);
                             $('#details' + number).text(code);
+                            $('#dropdownMenuButton1').text(name);
+                            $('#dropdownMenuButton2').removeAttr('disabled');
                         },
                         error: err => console.log(err)
                     });
+                }
+                else if (number == 2) {
+                    $.ajax({
+                        url: '/Compare/GetProject',
+                        type: "POST",
+                        data: JSON.stringify(name),
+                        contentType: 'application/json',
+                        success: function (result) {
+                            let metrics = result.project.metrics;
+                            let code = "Название: " + result.project.name + "\n";
+                            code += "Код: \n" + result.project.code + "\n";
+                            let info = "Метрики: \n" + "Цикломатическое число:" + metrics.complexityNumber + "\n";
+                            info += JSON.stringify(metrics.hMetrics).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n');
+                            $('#consolearea' + number).text(info);
+                            $('#details' + number).text(code);
+                            $('#dropdownMenuButton2').text(name);
+                        },
+                        error: err => console.log(err)
+                    });
+                    $.ajax({
+                        url: '/Compare/GetCompareResult',
+                        type: "POST",
+                        data: JSON.stringify({ "name1": $('#dropdownMenuButton1').text(), "name2": name }),
+                        contentType: 'application/json',
+                        success: function (result) {
+                            let info1 = JSON.stringify(result.compare1.hMetricsCompareResult).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n');
+                            $('#consolearea1').text($('#consolearea1').text() + "\n\n" + info1 + "\n\nКоличество лучших показателей: " + result.compare1.betterMetricsCount);
+                            let info2 = JSON.stringify(result.compare2.hMetricsCompareResult).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n');
+                            $('#consolearea2').text($('#consolearea2').text() + "\n\n" + info2 + "\n\nКоличество лучших показателей: " + result.compare2.betterMetricsCount);
+                        }
+                    });
+                }
             });
         });
     </script>

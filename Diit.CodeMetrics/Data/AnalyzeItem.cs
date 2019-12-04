@@ -18,5 +18,19 @@ namespace Diit.CodeMetrics.Data
         public double OperandsCounter { get; set; }
         public double TeoryOperators { get; set; }
         public double TeoryOperands { get; set; }
+
+        // Comment
+        public int CommentCounter { get; set; }
+
+        public List<int> CommentBlockCounter { get; set; } = new List<int>();
+
+        public List<int> OperatorsBlockCounter { get; set; } = new List<int>();
+
+        public double A_coef;
+
+        public bool Isprime;
+        // Gilb
+        public int ConditionOperatorsCount { get; set; }
+        public int AllOperatorsCount { get; set; }
     }
 }

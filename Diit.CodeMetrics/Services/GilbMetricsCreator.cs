@@ -26,13 +26,20 @@ namespace Diit.CodeMetrics.Services
 
             var parsedData = _lexicalAnalyzer.AnalyzeSource(sourceData).FirstOrDefault();
             var gilbProgrammComplexity =
-                (double)parsedData.ConditionOperatorsCount / parsedData.AllOperatorsCount;
+                Math.Round((double)parsedData.ConditionOperatorsCount / parsedData.AllOperatorsCount, 2);
+
+            var analaysResult = "относительно простая";
+
+            if (gilbProgrammComplexity > 0.2f)
+                analaysResult = "относительно сложная";
 
             var resultDictionary = new Dictionary<string, double>
             {
                 { "Число условных операторов", parsedData.ConditionOperatorsCount},
                 { "Число всех операторов", parsedData.AllOperatorsCount},
-                { "Относительная сложность программы по Джидбу", gilbProgrammComplexity}
+                { "Сложность программы по Джидбу - " + analaysResult +
+                    " в виду того, что отношение кол-ва условных " +
+                    "операторов к кол-ву всех операторов", gilbProgrammComplexity}
             };
 
 

@@ -15,6 +15,12 @@ namespace Diit.CodeMetrics.Services.Analyzer
         }
         public IEnumerable<AnalyzerItem> AnalyzeSource(string source)
         {
+            var patternForBlocks = _patternFactory.GetPattern(PatterTypesEnum.BlocksToDelete);
+            source = patternForBlocks.Replace(source, " ");
+
+            var patternForLines = _patternFactory.GetPattern(PatterTypesEnum.LinesToDelete);
+            source = patternForLines.Replace(source, " ");
+
             var patternForDividers = _patternFactory.GetPattern(PatterTypesEnum.DividersPattern);
             source = patternForDividers.Replace(source, " ");
 
@@ -27,6 +33,7 @@ namespace Diit.CodeMetrics.Services.Analyzer
 
             var patternForAllOperators = _patternFactory.GetPattern(PatterTypesEnum.OperatorsPattern);
             var patternForConditionOperators = _patternFactory.GetPattern(PatterTypesEnum.ConditionOperatorsPatter);
+            var patternForComments = _patternFactory.GetPattern(PatterTypesEnum.Comments);
             foreach (var lexem in lexems)
             {
                 if (patternForConditionOperators.IsMatch(lexem))

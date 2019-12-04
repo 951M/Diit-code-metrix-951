@@ -85,33 +85,33 @@ namespace Diit.CodeMetrics.Services
 
 
 
-                metriks.TryAdd("Колличество комментариев", Ncomments);
-                metriks.TryAdd("Колличество блоков", commentBlockCounter.Count);
+                metriks.TryAdd("Количество комментариев", Ncomments);
+                metriks.TryAdd("Количество блоков", commentBlockCounter.Count);
 
                 string analysLines = "Недостаточно";
 
                 if (f1 > 0.1f)
                     analysLines = "Достаточно";
 
-                metriks.TryAdd("Комментированность общая через строки(" + analysLines + ")", Math.Round(f1, 4));
+                metriks.TryAdd("Комментированность общая через строки (" + analysLines + ")", Math.Round(f1, 4));
 
                 analysLines = "Недостаточно";
                 if (f2 > 0.1f)
                     analysLines = "Достаточно";
 
-                metriks.TryAdd("Комментированность общая через операторы(" + analysLines + ")", Math.Round(f2, 4));
+                metriks.TryAdd("Комментированность общая через операторы (" + analysLines + ")", Math.Round(f2, 4));
 
                 string analysBlock = "Недостаточно";
                 if (f3 == commentBlockCounter.Count)
                     analysBlock = "Достаточно";
 
-                metriks.TryAdd("Комментированность блочная через строки(" + analysBlock + ")", f3);
+                metriks.TryAdd("Комментированность блочная через строки (" + analysBlock + ")", f3);
 
                 analysBlock = "Недостаточно";
                 if (f4 == commentBlockCounter.Count)
                     analysBlock = "Достаточно";
 
-                metriks.TryAdd("Комментированность блочная через операторы(" + analysBlock + ")", f4);
+                metriks.TryAdd("Комментированность блочная через операторы (" + analysBlock + ")", f4);
 
                 return metriks;
             }

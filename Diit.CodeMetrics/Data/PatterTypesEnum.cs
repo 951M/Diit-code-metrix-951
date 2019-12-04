@@ -9,6 +9,9 @@ namespace Diit.CodeMetrics.Data
     {
         ConditionOperatorsPatter,
         DividersPattern,
-        OperatorsPattern
+        OperatorsPattern,
+        Comments,
+        BlocksToDelete,
+        LinesToDelete
     }
 }

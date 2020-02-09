@@ -8,6 +8,7 @@ namespace Diit.CodeMetrics.Data
         public int ComplexityNumber { get; set; }
         public Dictionary<string,double> HMetrics { get; set; }
         public Dictionary<string, double> CMetrics { get; set; }
+        public Dictionary<string, double> ChMetrics { get; set; }
         public Dictionary<string, double> GMetrics { get; set; }
     }
 }

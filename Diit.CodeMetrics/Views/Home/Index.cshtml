@@ -121,102 +121,103 @@
                                     var s = arbor.Point(e.pageX - pos.left, e.pageY - pos.top);
 
                                     if (dragged && dragged.node !== null) {
-                                        var p = particleSystem.fromScreen(s);
-                                        dragged.node.p = p; //тянем вершину за нажатой мышью
-                                    }
+          var p = particleSystem.fromScreen(s);
+          dragged.node.p = p; //тянем вершину за нажатой мышью
+          }
 
-                                    return false;
-                                },
-                                dropped: function (e) { //отпустили
-                                    if (dragged === null || dragged.node === undefined) return; //если не перемещали, то уходим
-                                    if (dragged.node !== null) dragged.node.fixed = false; //если перемещали - отпускаем
-                                    dragged = null; //очищаем
-                                    $(canvas).unbind('mousemove', handler.dragged); //перестаём слушать события
-                                    $(window).unbind('mouseup', handler.dropped);
-                                    _mouseP = null;
-                                    return false;
-                                }
-                            }
-                            // слушаем события нажатия мыши
-                            $(canvas).mousedown(handler.clicked);
-                        },
+          return false;
+          },
+          dropped: function (e) { //отпустили
+          if (dragged === null || dragged.node === undefined) return; //если не перемещали, то уходим
+          if (dragged.node !== null) dragged.node.fixed = false; //если перемещали - отпускаем
+          dragged = null; //очищаем
+          $(canvas).unbind('mousemove', handler.dragged); //перестаём слушать события
+          $(window).unbind('mouseup', handler.dropped);
+          _mouseP = null;
+          return false;
+          }
+          }
+          // слушаем события нажатия мыши
+          $(canvas).mousedown(handler.clicked);
+          },
 
-                    }
-                    return that;
-                }
+          }
+          return that;
+          }
 
 
-                var metrics;
+          var metrics;
 
-                // the staf connected to tabs upper
-                var $tabButtonItem = $('#tab-button li'),
-                    $tabSelect = $('#tab-select'),
-                    $tabContents = $('.tab-contents'),
-                    activeClass = 'is-active';
+          // the staf connected to tabs upper
+          var $tabButtonItem = $('#tab-button li'),
+          $tabSelect = $('#tab-select'),
+          $tabContents = $('.tab-contents'),
+          activeClass = 'is-active';
 
-                $tabButtonItem.first().addClass(activeClass);
-                $tabContents.not(':first').hide();
+          $tabButtonItem.first().addClass(activeClass);
+          $tabContents.not(':first').hide();
 
-                $tabButtonItem.find('a').on('click', function (e) {
-                    var target = $(this).attr('href');
+          $tabButtonItem.find('a').on('click', function (e) {
+          var target = $(this).attr('href');
 
-                    $tabButtonItem.removeClass(activeClass);
-                    $(this).parent().addClass(activeClass);
-                    $tabSelect.val(target);
-                    $tabContents.hide();
-                    $(target).show();
-                    e.preventDefault();
-                });
+          $tabButtonItem.removeClass(activeClass);
+          $(this).parent().addClass(activeClass);
+          $tabSelect.val(target);
+          $tabContents.hide();
+          $(target).show();
+          e.preventDefault();
+          });
 
-                $tabSelect.on('change', function () {
-                    var target = $(this).val(),
-                        targetSelectNum = $(this).prop('selectedIndex');
+          $tabSelect.on('change', function () {
+          var target = $(this).val(),
+          targetSelectNum = $(this).prop('selectedIndex');
 
-                    $tabButtonItem.removeClass(activeClass);
-                    $tabButtonItem.eq(targetSelectNum).addClass(activeClass);
-                    $tabContents.hide();
-                    $(target).show();
-                });
+          $tabButtonItem.removeClass(activeClass);
+          $tabButtonItem.eq(targetSelectNum).addClass(activeClass);
+          $tabContents.hide();
+          $(target).show();
+          });
 
-                var myCodeMirror = CodeMirror($('#editor')[0], {
-                    mode: "text/x-csharp",
-                    lineNumbers: true,
-                });
+          var myCodeMirror = CodeMirror($('#editor')[0], {
+          mode: "text/x-csharp",
+          lineNumbers: true,
+          });
 
-                $('#send').click(event => {
-                    var send_type = $('#filereader')[0].files.length ? 'project' : 'text';
-                    var request_data;
+          $('#send').click(event => {
+          var send_type = $('#filereader')[0].files.length ? 'project' : 'text';
+          var request_data;
 
-                    if (send_type == 'project') {
-                        request_data = new FormData();
+          if (send_type == 'project') {
+          request_data = new FormData();
 
-                        for (var file of $('#filereader')[0].files) {
-                            request_data.append('Files', file);
-                        }
-                        window.a = request_data;
-                        request_data.append("FileType", "cs");
-                    } else {
-                        request_data = {
-                            "source": myCodeMirror.getValue(),
-                        };
-                    }
+          for (var file of $('#filereader')[0].files) {
+          request_data.append('Files', file);
+          }
+          window.a = request_data;
+          request_data.append("FileType", "cs");
+          } else {
+          request_data = {
+          "source": myCodeMirror.getValue(),
+          };
+          }
 
-                    $.ajax({
-                        url: send_type === 'project' ? '/Analyze/LoadFileAndAnalyze' : '/Analyze/LoadStringAndAnalyze',
-                        type: "POST",
-                        data: send_type === 'project' ? request_data : JSON.stringify(request_data),
-                        contentType: send_type === 'project' ? false : 'application/json',
-                        processData: send_type === 'project' ? false : true,
-                        success: function (response) {
-                            metrics = response.metrics
-                            let info = `Цикломатическое цисло:${metrics.ComplexityNumber}\n`
-                                + JSON.stringify(metrics.HMetrics).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n')
-                                + '\n\nМЕТРИКА ДЖИЛБА\n' + JSON.stringify(metrics.GMetrics).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n')
-                                + '\n\nМЕТРИКА УРОВНЯ КОММЕНТИРОВАННОСТИ ПРОГРАММ\n' + JSON.stringify(metrics.CMetrics).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n');
-                            $("#consolearea").text(info)
-                            $("#graph-select").empty()
-                            for (let name of Object.keys(metrics.GraphEntities))
-                                $("#graph-select").append(`<a class="dropdown-item" href="#">${name}</a>`)
+          $.ajax({
+          url: send_type === 'project' ? '/Analyze/LoadFileAndAnalyze' : '/Analyze/LoadStringAndAnalyze',
+          type: "POST",
+          data: send_type === 'project' ? request_data : JSON.stringify(request_data),
+          contentType: send_type === 'project' ? false : 'application/json',
+          processData: send_type === 'project' ? false : true,
+          success: function (response) {
+          metrics = response.metrics
+          let info = `Цикломатическое цисло:${metrics.ComplexityNumber}\n`
+          + JSON.stringify(metrics.HMetrics).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n')
+          + '\n\nМЕТРИКА ДЖИЛБА\n' + JSON.stringify(metrics.GMetrics).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n')
+          + '\n\nМЕТРИКА УРОВНЯ КОММЕНТИРОВАННОСТИ ПРОГРАММ\n' + JSON.stringify(metrics.CMetrics).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n')
+          + '\n\nМЕТРИКА Чепина\n' + JSON.stringify(metrics.ChMetrics).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n');
+          $("#consolearea").text(info)
+          $("#graph-select").empty()
+          for (let name of Object.keys(metrics.GraphEntities))
+          $("#graph-select").append(`<a class="dropdown-item" href="#">${name}</a>`)
                         },
                         error: err => console.log(err)
                     });

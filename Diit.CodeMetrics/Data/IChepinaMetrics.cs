@@ -7,8 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Diit.CodeMetrics.Data
 {
-    public interface IMetrics : IMcCeibMetrics, IHalstedMetrics, ICommentMetrics, IGilbMetrics, IChepinaMetrics
-    {
 
+    public interface IChepinaMetrics : IBaseMetrics
+    {
+        Dictionary<string,double> ChMetrics { get; set; }
+        
     }
 }

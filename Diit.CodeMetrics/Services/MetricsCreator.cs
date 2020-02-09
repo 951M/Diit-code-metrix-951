@@ -11,6 +11,7 @@ namespace Diit.CodeMetrics.Services
         private readonly IMetricsCreator<IMcCeibMetrics> _mcCeibCreator;
         private readonly IMetricsCreator<IHalstedMetrics> _halstedCreator;
         private readonly IMetricsCreator<ICommentMetrics> _commentCreator;
+        private readonly IMetricsCreator<IChepinaMetrics> _chepinaCreator;
         private readonly ILogger<MetricsCreator> _logger;
         private readonly IMetricsCreator<IGilbMetrics> _gilbCreator;
 
@@ -18,12 +19,14 @@ namespace Diit.CodeMetrics.Services
             IMetricsCreator<IHalstedMetrics> halstedCreator,
             IMetricsCreator<IGilbMetrics> gilbCreator,
             IMetricsCreator<ICommentMetrics> commentCreator,
+            IMetricsCreator<IChepinaMetrics> chepinaCreator,
             ILogger<MetricsCreator> logger)
         {
             _mcCeibCreator = mcCeibCreator;
             _halstedCreator = halstedCreator;
             _commentCreator = commentCreator;
             _gilbCreator = gilbCreator;
+            _chepinaCreator = chepinaCreator;
             _logger = logger;
         }
 
@@ -49,6 +52,10 @@ namespace Diit.CodeMetrics.Services
                 ICommentMetrics commMetrics = _commentCreator.CreateMetrics(source);
                 if (metrics != null)
                     metrics.CMetrics = commMetrics.CMetrics;
+
+                IChepinaMetrics chepMetrics = _chepinaCreator.CreateMetrics(source);
+                if (metrics != null)
+                    metrics.ChMetrics = chepMetrics.ChMetrics;
             }
             catch (Exception e)
             {

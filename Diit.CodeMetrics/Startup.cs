@@ -46,12 +46,14 @@ namespace Diit.CodeMetrics
             services.AddSingleton<IMetricsCreator<IHalstedMetrics>, HalstedMetricsCreator>();
             services.AddSingleton<IMetricsCreator<IMcCeibMetrics>, McCeibMetricsCreator>();
             services.AddSingleton<IMetricsCreator<ICommentMetrics>, CommentMetricsCreator>();
+            services.AddSingleton<IMetricsCreator<IChepinaMetrics>, ChepinaMetricsCreator>();
             services.AddSingleton<IMetricsCreator<IGilbMetrics>, GilbMetricsCreator>();
             services.AddSingleton<IMetricsCreator<IMetrics>, MetricsCreator>();
 
             services.AddSingleton<ILexicalAnalyzer<IMcCeibMetrics>, SharpSimpleLexicalAnalyzer2>();
             services.AddSingleton<ILexicalAnalyzer<IHalstedMetrics>, SHarpLexicalAnalyzer>();
             services.AddSingleton<ILexicalAnalyzer<ICommentMetrics>, SharpCommentAnalyzer>();
+            services.AddSingleton<ILexicalAnalyzer<IChepinaMetrics>, SharpChepiraAnalyzer>();
             services.AddSingleton<ILexicalAnalyzer<IGilbMetrics>, GilbSharpAnalyzer>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

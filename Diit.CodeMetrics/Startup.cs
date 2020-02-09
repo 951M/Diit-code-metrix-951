@@ -53,7 +53,7 @@ namespace Diit.CodeMetrics
             services.AddSingleton<ILexicalAnalyzer<IMcCeibMetrics>, SharpSimpleLexicalAnalyzer2>();
             services.AddSingleton<ILexicalAnalyzer<IHalstedMetrics>, SHarpLexicalAnalyzer>();
             services.AddSingleton<ILexicalAnalyzer<ICommentMetrics>, SharpCommentAnalyzer>();
-            services.AddSingleton<ILexicalAnalyzer<IChepinaMetrics>, SharpChepiraAnalyzer>();
+            services.AddSingleton<ILexicalAnalyzer<IChepinaMetrics>, SharpChepinaAnalyzer>();
             services.AddSingleton<ILexicalAnalyzer<IGilbMetrics>, GilbSharpAnalyzer>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

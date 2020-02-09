@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 
 namespace Diit.CodeMetrics.Services.Analyzer
 {
-    public class SharpChepiraAnalyzer : ILexicalAnalyzer<IChepinaMetrics>
+    public class SharpChepinaAnalyzer : ILexicalAnalyzer<IChepinaMetrics>
     {
         private readonly IHostingEnvironment _inv;
 

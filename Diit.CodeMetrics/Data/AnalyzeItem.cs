@@ -32,5 +32,12 @@ namespace Diit.CodeMetrics.Data
         // Gilb
         public int ConditionOperatorsCount { get; set; }
         public int AllOperatorsCount { get; set; }
+
+        //Chepina
+
+        public int nUnUsedVariables;
+        public int nUsedVariables;
+        public int nConfigVariables;
+        public int nReadOnlyVariables;
     }
 }

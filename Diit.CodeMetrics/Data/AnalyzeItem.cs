@@ -35,9 +35,9 @@ namespace Diit.CodeMetrics.Data
 
         //Chepina
 
-        public int nUnUsedVariables;
-        public int nUsedVariables;
-        public int nConfigVariables;
-        public int nReadOnlyVariables;
+        public int nUnUsedVariables { get; set; }
+        public int nUsedVariables { get; set; }
+        public int nConfigVariables { get; set; }
+        public int nReadOnlyVariables { get; set; }
     }
 }

@@ -12,6 +12,10 @@ namespace Diit.CodeMetrics.Services.Analyzer
     public class SharpChepinaAnalyzer : ILexicalAnalyzer<IChepinaMetrics>
     {
         private readonly IHostingEnvironment _inv;
+        int _nUnUsedVariables;
+        int _nUsedVariables;
+        int _nConfigVariables;
+        int _nReadOnlyVariables;
 
         public SharpChepinaAnalyzer(IHostingEnvironment inv)
         {
@@ -21,33 +25,48 @@ namespace Diit.CodeMetrics.Services.Analyzer
 
         public IEnumerable<AnalyzerItem> AnalyzeSource(string source)
         {
+            findVariableTypeP();
+            findVariableTypeM();
+            findVariableTypeC();
+            findVariableTypeT();
             AnalyzerItem item = new AnalyzerItem
             {
-            };
+                nUnUsedVariables = _nUnUsedVariables,
+            nUsedVariables = _nUsedVariables,
+            nConfigVariables = _nConfigVariables,
+            nReadOnlyVariables = _nReadOnlyVariables,
+        };
             List<AnalyzerItem> IEN = new List<AnalyzerItem>();
             IEN.Add(item);
             return IEN;
 
         }
 
-        public int findVariableTypeP() {
+        //read only  variables
+        public void findVariableTypeP() {
             Random rnd = new Random();
-            return rnd.Next(1, 3);
+            _nReadOnlyVariables =  rnd.Next(1, 3);
         }
-        public int findVariableTypeM()
+
+        // used variables
+        public void findVariableTypeM()
         {
             Random rnd = new Random();
-            return rnd.Next(1, 3);
+            _nUsedVariables = rnd.Next(1, 3);
         }
-        public int findVariableTypeC()
+
+        //config variables
+        public void findVariableTypeC()
         {
             Random rnd = new Random();
-            return rnd.Next(1, 3);
+            _nConfigVariables = rnd.Next(1, 3);
         }
-        public int findVariableTypeT()
+
+        //unused  variables
+        public void findVariableTypeT()
         {
             Random rnd = new Random();
-            return rnd.Next(1, 3);
+            _nUnUsedVariables = rnd.Next(1, 3);
         }
     }
 }

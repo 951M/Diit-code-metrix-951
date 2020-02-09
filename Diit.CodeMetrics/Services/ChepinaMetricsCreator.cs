@@ -34,8 +34,8 @@ namespace Diit.CodeMetrics.Services
                 allsource += Encoding.UTF8.GetString(i.Source);
             }
             var analized = _lexicalAnalyzer.AnalyzeSource(allsource).FirstOrDefault();
-            metrics.ChMetrics = Calculate(analized.CommentCounter, (int)analized.OperatorsCounter,
-                analized.LineNumber, (int)analized.A_coef);
+            metrics.ChMetrics = Calculate(analized.nUnUsedVariables, analized.nUsedVariables,
+                analized.nConfigVariables, analized.nReadOnlyVariables);
             return metrics;
         }
 

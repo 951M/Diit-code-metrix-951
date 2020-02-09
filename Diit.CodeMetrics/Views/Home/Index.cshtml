@@ -213,7 +213,7 @@
           + JSON.stringify(metrics.HMetrics).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n')
           + '\n\nМЕТРИКА ДЖИЛБА\n' + JSON.stringify(metrics.GMetrics).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n')
           + '\n\nМЕТРИКА УРОВНЯ КОММЕНТИРОВАННОСТИ ПРОГРАММ\n' + JSON.stringify(metrics.CMetrics).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n')
-          + '\n\nМЕТРИКА Чепина\n' + JSON.stringify(metrics.ChMetrics).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n');
+          + '\n\nМЕТРИКА ЧЕПИНА\n' + JSON.stringify(metrics.ChMetrics).replace(/("|{|}|")/gi, '').replace(/(,)/gi, '\n');
           $("#consolearea").text(info)
           $("#graph-select").empty()
           for (let name of Object.keys(metrics.GraphEntities))

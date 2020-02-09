@@ -58,7 +58,7 @@ namespace Diit.CodeMetrics.Services.Analyzer
                                 ,"return"
 };
 
-        public SharpChepiraAnalyzer(IHostingEnvironment inv)
+        public SharpChepinaAnalyzer(IHostingEnvironment inv)
         {
 
             types.Add("bool");
